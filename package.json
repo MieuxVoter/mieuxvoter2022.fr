@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "cd node_modules/fomantic-ui && npx gulp install && npx gulp build && cd ../.. && next build",
     "start": "next start",
     "lint": "next lint"
   },
