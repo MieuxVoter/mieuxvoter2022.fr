@@ -1,0 +1,27 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+@font-face {
+        font-family: 'DMSans';
+        src: url('@{path-fonts}/DMSans-Medium.ttf') format('truetype') ;
+        font-weight: 500;
+        font-style: normal;
+
+    }
+
+@font-face {
+  font-family: 'Chaumont';
+  src: url('@{path-fonts}/ChaumontScript-Regular.woff');
+  font-style: normal;
+  font-weight: 700;
+}
+
+
+.home .subtitle{
+position: absolute;
+width: 619.41px;
+height: 137px;
+left: 408px;
+top: 189.3px;
+}

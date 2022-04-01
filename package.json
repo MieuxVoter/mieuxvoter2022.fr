@@ -9,12 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.1.2",
+    "fomantic-ui": "^2.8.8",
+    "fomantic-ui-sass": "^2.7.80008",
+    "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0"
   },
   "devDependencies": {
     "eslint": "8.12.0",
-    "eslint-config-next": "12.1.2"
+    "eslint-config-next": "12.1.4"
   }
 }
