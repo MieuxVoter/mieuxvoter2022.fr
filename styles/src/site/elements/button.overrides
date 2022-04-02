@@ -2,6 +2,13 @@
          Site Overrides
 *******************************/
 
+.ui.button {
+border-radius: 0px;
+font-family: DMSans;
+font-style: normal;
+font-weight: 700;
+color: @blue;
+}
 
 .ui.button.secondary {
 
@@ -14,7 +21,6 @@ padding: 4px 12px;
 height: 32px;
 
 border: 2px solid @blue;
-border-radius: 0px;
 box-sizing: border-box;
 background-color: transparent;
 color: @blue;
@@ -40,6 +46,10 @@ border-radius: 0px;
 width: fit-content;
 font-family: DMSans;
 margin: auto;
+}
+
+
+.chrono.ui.primary.button {
 position: relative;
 top: 100px;
 }
@@ -47,8 +57,6 @@ top: 100px;
 .ui.ensavoirplus {
 position: static;
 height: 24px;
-left: 12px;
-top: 4px;
 
 font-family: DMSans;
 font-style: normal;
@@ -65,4 +73,17 @@ flex: none;
 order: 0;
 flex-grow: 0;
 margin: 0px 16px;
+}
+
+/** Scrutin uninominal **/
+.sm .ui.button {
+width: 100%;
+}
+.sm .ui.button:hover {
+background-color: @blue;
+color: @white;
+}
+.jm .ui.button:hover {
+background-color: @blue;
+color: @white;
 }

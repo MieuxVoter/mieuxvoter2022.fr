@@ -2,6 +2,7 @@
      User Global Variables
 *******************************/
 @path-fonts: "../fonts";
+@page-width: 1440px;
 
 /*-------------------
       Site Colors
@@ -18,6 +19,8 @@
 @red              : #FF3E37;
 @teal             : #1de9b6;
 @yellow           : #FFEB3B;
+
+@darkBlue         : #1C079C;
 
 /*---  Light Colors  ---*/
 @lightBlack       : #333333;

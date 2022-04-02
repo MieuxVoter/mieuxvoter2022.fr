@@ -35,3 +35,57 @@ transform: rotate(-2.16deg);
   -webkit-text-stroke: 2px @blue;
   font-family: 'DMSans-Bold';
 }
+
+
+h5.ui.header {
+padding: 12px 24px;
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+font-family: DMSans;
+font-style: normal;
+font-weight: 700;
+font-size: 17px;
+line-height: 24px;
+
+/* identical to box height, or 141% */
+letter-spacing: -0.02em;
+
+color: @blue;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 16px;
+}
+
+
+h3.ui.header {
+font-family: 'Outfit';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 30px;
+
+/* or 125% */
+text-align: center;
+letter-spacing: -0.02em;
+
+color: @black;
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+h4.ui.header {
+font-family: Chaumont;
+font-style: normal;
+font-weight: 400;
+font-size: 36px;
+line-height: 36px;
+
+/* identical to box height, or 100% */
+
+color: @blue;
+
+transform: rotate(-2deg);
+}

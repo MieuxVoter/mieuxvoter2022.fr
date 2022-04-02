@@ -96,7 +96,9 @@ const Summary = (props) => {
 
 
 export default function Voter(props) {
-  const [step, setStep] = useState(Math.random() > 0.5 ? 'jm' : 'sm');
+  // const [step, setStep] = useState(Math.random() > 0.5 ? 'jm' : 'sm');
+  const [step, setStep] = useState('jm');
+
 
   return (
     <div>
