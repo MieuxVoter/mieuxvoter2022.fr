@@ -11,17 +11,16 @@
     }
 
 @font-face {
+        font-family: 'DMSans-Bold';
+        src: url('@{path-fonts}/DMSans-Bold.ttf') format('truetype') ;
+        font-weight: 700;
+        font-style: normal;
+
+    }
+@font-face {
   font-family: 'Chaumont';
   src: url('@{path-fonts}/ChaumontScript-Regular.woff');
   font-style: normal;
   font-weight: 700;
 }
 
-
-.home .subtitle{
-position: absolute;
-width: 619.41px;
-height: 137px;
-left: 408px;
-top: 189.3px;
-}

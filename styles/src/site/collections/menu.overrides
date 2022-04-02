@@ -1,3 +1,55 @@
 /*******************************
          Site Overrides
 *******************************/
+
+.home .subtitle{
+position: relative;
+top: 20px;
+width: 619.41px;
+height: 137px;
+margin: auto !important;
+}
+
+.home {
+background: url('/home.svg') no-repeat center center;
+background-size: auto 100%;
+   display: flex;
+   height: 770px;
+   justify-content: center;
+   padding: 0;
+   margin: 0;
+}
+
+.home .container .right .menu {
+display: flex;
+  align-items: center;
+  }
+
+.home .container .social {
+padding-right: 24px;
+}
+.home .title {
+top: 117px;
+position: relative;
+}
+
+
+.home .container p {
+width: 467px;
+height: 135px;
+position: relative;
+top: 50px;
+
+font-family: DMSans;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 170%;
+
+/* or 27px */
+text-align: center;
+letter-spacing: -0.02em;
+margin: auto;
+
+color: @grey;
+}

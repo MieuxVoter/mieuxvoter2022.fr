@@ -33,4 +33,5 @@ transform: rotate(-2.16deg);
 	color: #FFF;
   text-stroke: 2px @blue;
   -webkit-text-stroke: 2px @blue;
+  font-family: 'DMSans-Bold';
 }

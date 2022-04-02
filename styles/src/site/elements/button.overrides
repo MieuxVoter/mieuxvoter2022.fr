@@ -1,3 +1,68 @@
 /*******************************
          Site Overrides
 *******************************/
+
+
+.ui.button.secondary {
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 12px;
+
+height: 32px;
+
+border: 2px solid @blue;
+border-radius: 0px;
+box-sizing: border-box;
+background-color: transparent;
+color: @blue;
+}
+.ui.button.secondary a {
+color: @blue;
+}
+.ui.button.secondary:hover {
+	background-color: @blue;
+	color: @white;
+}
+.ui.button.secondary a:hover {
+	color: @white;
+}
+
+.ui.primary {
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 24px 48px;
+border-radius: 0px;
+width: fit-content;
+font-family: DMSans;
+margin: auto;
+position: relative;
+top: 100px;
+}
+
+.ui.ensavoirplus {
+position: static;
+height: 24px;
+left: 12px;
+top: 4px;
+
+font-family: DMSans;
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 24px;
+
+/* identical to box height, or 185% */
+letter-spacing: -0.02em;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 16px;
+}
