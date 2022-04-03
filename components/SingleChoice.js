@@ -19,10 +19,10 @@ const Candidate = ({name, photo, parti}) => (<div className='ui grid candidate'>
 </div>)
 
 
-const ScrutinUninominal = () => (<div className='ui container sm'>
+const SingleChoice = () => (<div className='ui container sm'>
   <div className='ui grid four column'>
     {candidates.map((candidate, i) => (<div className='column'><Candidate key={i} {...candidate} /></div>))}
   </div>
 </div>)
 
-export default ScrutinUninominal;
+export default SingleChoice;

@@ -6,7 +6,7 @@ const Footer = () => (
     <Title />
 
     <Link href='/voter'>
-      <h5 className="ui big primary button">Je vote avec le jugement majoritaire <i className="right arrow icon"></i></h5>
+      <h5 className="ui big primary button padded">Je vote avec le jugement majoritaire <i className="right arrow icon"></i></h5>
     </Link>
 
     <div className='access'>

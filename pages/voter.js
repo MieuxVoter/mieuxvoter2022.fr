@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import facebook from '../public/facebook.svg'
@@ -8,8 +8,14 @@ import Calendar from '../components/Calendar'
 import Counter from '../components/Counter'
 import BigArrowDown from '../components/BigArrowDown'
 import Footer from '../components/Footer'
-import ScrutinUninominal from '../components/ScrutinUninominal'
-import JugementMajoritaire from '../components/JugementMajoritaire'
+import SingleChoice from '../components/SingleChoice'
+import MajorityJugdment from '../components/MajorityJugdment'
+import Form from '../components/Form'
+import Done from '../components/Done'
+import {candidates, grades} from '../lib/constants'
+import {shuffleArray} from '../lib/utils'
+import {storeBallot, getPersonalData} from '../lib/database'
+import {storePersonalData} from '../lib/database'
 
 
 export async function getStaticProps() {
@@ -96,16 +102,47 @@ const Summary = (props) => {
 
 
 export default function Voter(props) {
-  // const [step, setStep] = useState(Math.random() > 0.5 ? 'jm' : 'sm');
-  const [step, setStep] = useState('jm');
+  const personalData = getPersonalData()
+  const [stage, setStage] = useState(personalData.step);
+  const ballotCandidates = [...candidates]
+  // shuffleArray(ballotCandidates)
 
+  // useEffect(() => {
+  //   shuffleArray(ballotCandidates);
+  //   console.log('shuffling')
+  // }, [])
+
+  const handleSubmit = (ballotOrPersonal) => {
+    if (stage == 'info') {
+      Object.keys(ballotOrPersonal).forEach(k => {personalData[k] = ballotOrPersonal[k]});
+      storePersonalData(personalData)
+      setStage('done')
+    } else if (stage == 'mj') {
+      setStage(personalData.sm ? 'info' : 'sm')
+    } else if (stage == 'sm') {
+      setStage(personalData.mj ? 'info' : 'mj')
+    }
+  }
+
+  let Component = null
+  if (personalData.step == 'mj') {
+    Component = MajorityJugdment
+  }
+  else if (personalData.step == 'sm') {
+    Component = SingleChoice
+  }
+  else if (personalData.step == 'info') {
+    Component = Info
+  }
+  else {
+    Component = Done
+  }
 
   return (
     <div>
       <Head {...props} />
       <Summary {...props} />
-      {(step == 'jm') ? <JugementMajoritaire /> : <ScrutinUninominal />
-      }
+      <Component onSubmit={handleSubmit} candidates={ballotCandidates} grades={grades} />
       <Footer />
     </div>
   )

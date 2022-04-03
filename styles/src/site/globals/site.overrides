@@ -356,7 +356,7 @@ height: 92px;
 }
 
 /** Jugement Majoritaire **/
-.jm .candidate {
+.jm .ui.candidate {
 background: @white;
 box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.06), 0px 2px 1px rgba(0, 0, 0, 0.03);
 border-radius: 8px;

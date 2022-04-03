@@ -10,12 +10,16 @@ font-weight: 700;
 color: @blue;
 }
 
+.ui.button.padded { 
+padding: 24px 48px;
+}
+
 .ui.button.secondary {
 
-display: flex;
+/* display: flex;
 flex-direction: row;
 justify-content: center;
-align-items: center;
+align-items: center;*/
 padding: 4px 12px;
 
 height: 32px;
@@ -36,17 +40,15 @@ color: @blue;
 	color: @white;
 }
 
-.ui.primary {
+/* .ui.primary {
 display: flex;
 flex-direction: row;
 justify-content: center;
-align-items: center;
-padding: 24px 48px;
-border-radius: 0px;
+align-items: center; 
 width: fit-content;
 font-family: DMSans;
 margin: auto;
-}
+} */
 
 
 .chrono.ui.primary.button {
@@ -86,4 +88,9 @@ color: @white;
 .jm .ui.button:hover {
 background-color: @blue;
 color: @white;
+}
+
+/** Jugement Majoritaire **/
+.jm .ui.button {
+pointer-events: inherit !important;
 }

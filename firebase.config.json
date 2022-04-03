@@ -1,0 +1,37 @@
+{ "rules": {
+  "logs": {
+      "$uid": {
+        ".write": "auth != null && $uid === auth.uid",
+        ".read": "auth != null && $uid === auth.uid"
+      }
+    },
+    "users": {
+      "$uid": {
+        ".write": "auth != null && $uid === auth.uid",
+        ".read": "auth != null && $uid === auth.uid"
+      }
+    },
+    "mj": {
+      "$uid": {
+        ".write": "auth != null && $uid === auth.uid",
+        ".read": "auth != null && $uid === auth.uid"
+      }
+    },
+    "sm": {
+      "$uid": {
+        ".write": "auth != null && $uid === auth.uid",
+        ".read": "auth != null && $uid === auth.uid"
+      }
+  },
+  "numVotes": {
+    ".validate": "newData.isNumber() && newData.val() < data.val() + 13 && newData.val() > data.val()",
+    ".read": true,           
+    ".write": true
+  },
+  "numUsers": {
+    ".validate": "newData.isNumber() && newData.val() === data.val() + 1",
+    ".read": true,           
+    ".write": true
+  } 
+}
+}
