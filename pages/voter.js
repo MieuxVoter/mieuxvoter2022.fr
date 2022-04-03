@@ -1,19 +1,18 @@
 import {useState, useEffect} from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import facebook from '../public/facebook.svg'
 import twitter from '../public/twitter.svg'
 import Title from '../components/Title'
 import Counter from '../components/Counter'
-import BigArrowDown from '../components/BigArrowDown'
 import Footer from '../components/Footer'
 import SingleChoice from '../components/SingleChoice'
 import MajorityJugdment from '../components/MajorityJugdment'
 import Done from '../components/Done'
+import Form from '../components/Form'
 import {candidates, grades} from '../lib/constants'
 import {shuffleArray} from '../lib/utils'
-import {getPersonalData} from '../lib/database'
-import {storePersonalData} from '../lib/database'
+import {personalData, connect} from '../lib/database'
+import {storePersonalData, storeBallot} from '../lib/database'
 
 
 export async function getStaticProps() {
@@ -38,7 +37,7 @@ export async function getStaticProps() {
 // </div>
 
 const Head = (props) => (
-  <div className='home'>
+  <div className='head'>
 
 
     <div className="ui container">
@@ -46,10 +45,10 @@ const Head = (props) => (
       <div className="ui top secondary menu">
         <div className="ui container">
           <div className="right menu">
-            <a rel="noopener" target="_blank" href="https://www.facebook.com/mieuxvoter.fr" className='social'>
+            <a rel="noreferrer" target="_blank" href="https://www.facebook.com/mieuxvoter.fr" className='social'>
               <Image src={facebook} alt='facebook logo' />
             </a>
-            <a rel="noopener" target="_blank" href="twitter.com/mieux_voter" className='social'>
+            <a rel="noreferrer" target="_blank" href="twitter.com/mieux_voter" className='social'>
               <Image src={twitter} alt='twitter logo' />
             </a>
             <div className='ui button secondary'>
@@ -113,15 +112,16 @@ const Summary = (props) => {
 
 
 export default function Voter(props) {
-  const personalData = getPersonalData()
-  const [stage, setStage] = useState(personalData.step);
+  connect()
+  const [stage, setStage] = useState(personalData && personalData.step);
   const ballotCandidates = [...candidates]
   shuffleArray(ballotCandidates)
 
-  // useEffect(() => {
-  //   shuffleArray(ballotCandidates);
-  //   console.log('shuffling')
-  // }, [])
+  useEffect(() => {
+    if (personalData && personalData.step) {
+      setStage(personalData.step);
+    }
+  }, [personalData])
 
   const handleSubmit = (ballotOrPersonal) => {
     if (stage == 'info') {
@@ -129,21 +129,27 @@ export default function Voter(props) {
       storePersonalData(personalData)
       setStage('done')
     } else if (stage == 'mj') {
-      setStage(personalData.sm ? 'info' : 'sm')
+      personalData.step = personalData.sm ? 'info' : 'sm'
+      storePersonalData(personalData)
+      storeBallot(ballotOrPersonal, stage)
+      setStage(personalData.step)
     } else if (stage == 'sm') {
-      setStage(personalData.mj ? 'info' : 'mj')
+      personalData.step = personalData.mj ? 'info' : 'mj'
+      storePersonalData(personalData)
+      storeBallot(ballotOrPersonal, stage)
+      setStage(personalData.step)
     }
   }
 
   let Component = null
-  if (personalData.step == 'mj') {
+  if (stage == 'mj') {
     Component = MajorityJugdment
   }
-  else if (personalData.step == 'sm') {
+  else if (stage == 'sm') {
     Component = SingleChoice
   }
-  else if (personalData.step == 'info') {
-    Component = Info
+  else if (stage == 'info') {
+    Component = Form
   }
   else {
     Component = Done
@@ -152,7 +158,6 @@ export default function Voter(props) {
   return (
     <div className='ui voter'>
       <Head {...props} />
-      <BigArrowDown />
       <Summary {...props} />
       <Component {...props} onSubmit={handleSubmit} candidates={ballotCandidates} grades={grades} />
       <Footer />

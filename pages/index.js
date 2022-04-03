@@ -35,10 +35,10 @@ const Head = (props) => (
 
     <div className="ui navigation">
       <div className="right">
-        <a rel="noopener" target="_blank" href="https://www.facebook.com/mieuxvoter.fr" className='social'>
+        <a rel="noreferrer" target="_blank" href="https://www.facebook.com/mieuxvoter.fr" className='social'>
           <Image src={facebook} alt='facebook logo' />
         </a>
-        <a rel="noopener" target="_blank" href="twitter.com/mieux_voter" className='social'>
+        <a rel="noreferrer" target="_blank" href="twitter.com/mieux_voter" className='social'>
           <Image src={twitter} alt='twitter logo' />
         </a>
         <div className='ui button secondary'>
@@ -148,7 +148,7 @@ const NumBallots = ({numVotes}) => (
       <div className='votes'>VOTES</div>
       <a href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvoterutile.fr'>
         <div className='overlap'>
-          <div className="ui big primary button">Je partage l'expérience <i className="right arrow icon"></i></div>
+          <div className="ui big primary button">Je partage l&apos;expérience <i className="right arrow icon"></i></div>
         </div>
       </a>
     </div>

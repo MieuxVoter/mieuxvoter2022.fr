@@ -1,19 +1,21 @@
+import {useState} from 'react'
 import Link from 'next/link'
 import ErrorToast from './Toast'
+import Message from './Message'
 import {candidates} from '../lib/constants'
 
 
-const Field = ({type, text, options, onClick, name}) => {
+const Field = ({type, text, options, onChange, name}) => {
   let Component = null
 
   if (type == 'mail') {
-    Component = (<div class="ui input">
-      <input type="email" onClick={onClick} name={name} />
+    Component = (<div className="ui input">
+      <input type="email" onChange={onChange} name={name} />
     </div>)
   } else if (type == 'mail') {
     Component = (
-      <div class="field">
-        <div class="ui radio checkbox">
+      <div className="field">
+        <div className="ui radio checkbox">
           {options.map((opt, i) => <><input key={i} type="radio" name={name} /><label>{opt}</label></>)}
         </div>
       </div>)
@@ -140,17 +142,17 @@ const Form = ({onSubmit}) => {
       <Message title={<h3>Collection des informations personnels</h3>}>
         <p>
           Étant accessible par tout le monde, les votes collectés sur cette plateforme comporte des biais. Nous souhaitons mesurer ces biais en collectant des informations personnels et en les comparant avec les résultats obtenus dans nos sondages réalisés avec Opinion Way.
-          <Link href='/faq'><span className='ui link'>Plus de détails</span></Link>
+          <Link href='/faq'><span className='ui lien'>Plus de détails</span></Link>
         </p>
       </Message>
 
       {error && <ErrorToast msg={error} />}
 
-      <form class="ui form">
-        <div class="field">
-          {fields.map(f => <Field {...f} />)}
+      <form className="ui form">
+        <div className="field">
+          {fields.map((f, i) => <Field key={i} onChange={handleChange} {...f} />)}
           <div className='row'>
-            <div onClick={handleSubmit} className={`fluid ui ${isDone ? '' : 'disabled'} button`}>Je vote</div>
+            <div onClick={handleSubmit} className="fluid ui  button">Valider</div>
           </div>
         </div>
       </form>

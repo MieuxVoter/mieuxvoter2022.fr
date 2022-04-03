@@ -373,11 +373,18 @@ padding: 5px;
 .sm .candidate {
 display: flex;
 flex-direction: column;
-justify-content: center;
+align-items: center;
+margin: 15px;
+box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(255,255,255),
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
+padding: 15px;
 }
 .sm .candidate .photo {
 width: 92px;
 height: 92px;
+margin-bottom: 10px;
 }
 
 /** Jugement Majoritaire **/
@@ -434,4 +441,38 @@ color: #6B6B6B;
 .ui.summary .stats {
  margin-top: 49px;
  margin-left: 197px;
+}
+
+/** Page Voter: Done **/
+.voter .done {
+display: flex;
+width: 100%;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+.voter .done .share {
+display: flex;
+width: 100%;
+align-items: center;
+justify-content: center;
+flex-direction: row;
+}
+.voter .done p  {
+max-width: 600px;
+font-family: DMSans;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 170%;
+
+text-align: center;
+letter-spacing: -0.02em;
+color: @grey;
+margin: 50px auto;
+}
+
+.ui.lien {
+color: @blue;
+cursor: pointer;
 }

@@ -71,5 +71,6 @@ right: 250px;
 .ui.voter .head {
  height: 457px;
  background-position: top;
+ margin-bottom: 100px;
 }
 
