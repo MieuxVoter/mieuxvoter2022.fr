@@ -1,49 +1,75 @@
 /*******************************
          Site Overrides
 *******************************/
-
-.home .title{
-text-align: center;
-top: 40px;
-position: relative;
-}
-
-.home .subtitle{
-position: relative;
-top: 20px;
-width: 619.41px;
-height: 137px;
-margin: 0 auto !important;
-}
-
-.home {
+.head {
 background: url('/home.svg') no-repeat center center;
-background-size: auto 100%;
+background-size: auto 770px;
    display: flex;
    height: 770px;
-   justify-content: center;
+align-items: center;
+flex-direction: column;
    padding: 15px 0;
    margin: 0;
 }
 
-.home .container .right .menu {
+.head .title{
+text-align: center;
+margin-top: 40px;
+display: flex;
+width: 620px;
+align-items: center;
+flex-direction: column;
+text-align: center;
+}
+
+.head .navigation {
+width: 100%;
+display: flex;
+justify-content: flex-end;
+align-items: stretch;
+}
+.head h2 {
+max-width: 620px;
+}
+.head .right .menu {
 display: flex;
   align-items: center;
   }
 
-.home .container .social {
+.head .social {
 padding-right: 24px;
 }
 
-.home .container p {
+/** Page Home **/
+.home .head .content {
 max-width: 467px;
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 170%;
+margin-top: 20px;
+
+/* or 27px */
+text-align: center;
+letter-spacing: -0.02em;
+
+color: @grey;
 }
-.home .bottomright {
+.head .down {
+margin-top: 50px !important;
+}
+
+.head .bottomright {
 position: absolute;
 top: 650px;
 right: 250px;
 }
 
-.home .down {
-margin-top: 150px !important;
+
+/** Page Voter **/
+.ui.voter .head {
+ height: 457px;
+ background-position: top;
 }
+

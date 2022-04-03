@@ -15,20 +15,26 @@ padding: 24px 48px;
 }
 
 .ui.button.secondary {
-
-/* display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;*/
 padding: 4px 12px;
-
 height: 32px;
-
 border: 2px solid @blue;
 box-sizing: border-box;
 background-color: transparent;
 color: @blue;
 }
+
+.ui.button.tertiary {
+padding: 12px 24px;
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+font-size: 17px;
+line-height: 24px;
+letter-spacing: -0.02em;
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 16px;
+}
+
 .ui.button.secondary a {
 color: @blue;
 }

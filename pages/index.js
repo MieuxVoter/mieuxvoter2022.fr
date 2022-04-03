@@ -31,64 +31,53 @@ export async function getStaticProps() {
 }
 
 const Head = (props) => (
-  <div className='home'>
+  <div className='ui head'>
 
-    <div className="ui vertical masthead center aligned">
-
-      <div className="ui container">
-
-        <div className="ui top secondary menu">
-          <div className="ui container">
-            <div className="right menu">
-              <a rel="noopener" target="_blank" href="https://www.facebook.com/mieuxvoter.fr" className='social'>
-                <Image src={facebook} alt='facebook logo' />
-              </a>
-              <a rel="noopener" target="_blank" href="twitter.com/mieux_voter" className='social'>
-                <Image src={twitter} alt='twitter logo' />
-              </a>
-              <div className='ui button secondary'>
-                <a className="ui ensavoirplus" href='/faq'>Questions fréquentes</a>
-              </div>
-            </div>
-          </div>
+    <div className="ui navigation">
+      <div className="right">
+        <a rel="noopener" target="_blank" href="https://www.facebook.com/mieuxvoter.fr" className='social'>
+          <Image src={facebook} alt='facebook logo' />
+        </a>
+        <a rel="noopener" target="_blank" href="twitter.com/mieux_voter" className='social'>
+          <Image src={twitter} alt='twitter logo' />
+        </a>
+        <div className='ui button secondary'>
+          <a className="ui ensavoirplus" href='/faq'>Questions fréquentes</a>
         </div>
-
-      </div>
-
-      <div className="ui text container title">
-        <Title />
-        <h2 className='ui header subtitle'>Votez utile, pour la dernière fois !</h2>
-        <p>Notre démocratie est malade de son mode de scrutin. Vote utile, vote contre, vote barrage, vote blanc : autant de symptômes d’un système qui dysfonctionne.  Ensemble démontrons que l’on peut refaire société différemment et  libérons les citoyens de ce carcan.
-          <br />
-          <br />
-          Notre but : exhorter la ou le prochain locataire de l’Elysée à révolutionner les élections avec le jugement majoritaire.</p>
-
-        <Link href='/voter'>
-          <h5 className="ui big primary button">Participer à l’expérience <i className="right arrow icon"></i></h5>
-        </Link>
-
-        <Link href='/faq'>
-          <h5 className="ui header down link">En savoir plus</h5>
-        </Link>
-
-        <Link href='#chrono'>
-          <BigArrowDown />
-        </Link>
       </div>
 
     </div>
+
+    <Title />
+    <h2 className='ui header subtitle'>Votez utile, pour la dernière fois !</h2>
+    <div className='content'>
+      Notre démocratie est malade de son mode de scrutin. Vote utile, vote contre, vote barrage, vote blanc : autant de symptômes d’un système qui dysfonctionne.  Ensemble démontrons que l’on peut refaire société différemment et  libérons les citoyens de ce carcan.
+    </div>
+    <div className='content'>
+      Notre but : exhorter la ou le prochain locataire de l’Elysée à révolutionner les élections avec le jugement majoritaire.
+    </div>
+
+    <Link href='/voter'>
+      <div className="ui big blue primary down button">Participer à l’expérience <i className="right arrow icon"></i></div>
+    </Link>
+
+    <Link href='/faq'>
+      <div className="ui tertiary blue down button">En savoir plus</div>
+    </Link>
+
+
 
     <div className='bottomright'>
       <Calendar remain={props.remain} />
     </div>
-  </div>
+  </div >
 );
 
 const Chrono = (props) => {
   const goalParticipantsK = parseInt(props.goalParticipants / 1000);
 
   return (
-    <div id='chrono' className='page'>
+    <div id='chrono' className='ui container'>
       <div className="ui two column grid">
         <div className='right-arrow-1'>
           <Image src={rightArrow} />
@@ -140,8 +129,11 @@ const Chrono = (props) => {
       </div>
 
       <Link href='/faq'>
-        <h5 className="ui big primary red button">Voir le détail de l’étude</h5>
+        <div className='calltoaction'>
+          <div className="ui big primary red button">Voir le détail de l’étude</div>
+        </div>
       </Link>
+
 
     </div>
   )
@@ -149,26 +141,25 @@ const Chrono = (props) => {
 
 
 const NumBallots = ({numVotes}) => (
-  <div className='page'>
+  <div className='ui container'>
     <div className='num-ballots'>
       <h2 className='ui header subtitle'>Déjà, plus de</h2>
       <div className='num-votes'>{parseInt(numVotes / 1000)}K</div>
       <div className='votes'>VOTES</div>
-      <a href='#'>
-        <h5 className="ui big primary button">Je partage l'expérience <i className="right arrow icon"></i></h5>
+      <a href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvoterutile.fr'>
+        <div className='overlap'>
+          <div className="ui big primary button">Je partage l'expérience <i className="right arrow icon"></i></div>
+        </div>
       </a>
     </div>
   </div>
 );
 
 const Versus = () => (
-  <div className='page'>
+  <div className='ui container'>
     <div className='versus row'>
-      <div className='vs'>
-        <Image src={vs} />
-      </div>
       <div className="ui two column grid">
-        <div className='column'>
+        <div className='ui seven wide column'>
           <h3 className='ui header'>Vote jugement majoritaire</h3>
           <ul>
             <li> J’évalue tous les candidats sur une échelle mentions de « Excellent » à « À rejeter ».</li>
@@ -177,7 +168,14 @@ const Versus = () => (
             <li>Un candidat rejeté par la majorité des votants ne peut jamais être élu.</li>
           </ul>
         </div>
-        <div className='column'>
+        <div className='ui two wide column'>
+          <div className='vs'>
+            <div>
+              <Image src={vs} />
+            </div>
+          </div>
+        </div>
+        <div className='ui seven wide column'>
           <h3 className='ui header'>Vote au scrutin uni-nominal</h3>
           <ul>
             <li>
@@ -193,7 +191,7 @@ const Versus = () => (
 );
 
 const Advantages = () => (
-  <div className='page'>
+  <div className='ui container'>
     <div className='advantages row'>
       <div className="ui three column grid">
         <div className='column'>
@@ -234,8 +232,13 @@ const Quotes = () => (
 
 export default function Home(props) {
   return (
-    <div>
+    <div className='home'>
       <Head {...props} />
+      <Link href='#chrono'>
+        <div className='divider'>
+          <BigArrowDown />
+        </div>
+      </Link>
       <Chrono {...props} />
       <NumBallots {...props} />
       <BigArrowDown />
@@ -243,7 +246,9 @@ export default function Home(props) {
       <BigArrowDown />
       <Advantages {...props} />
       <Link href='/voter'>
-        <h5 className="ui big primary button">Participer au vote <i className="right arrow icon"></i></h5>
+        <div className='calltoaction'>
+          <div className="ui big primary button">Participer au vote <i className="right arrow icon"></i></div>
+        </div>
       </Link>
       <BigArrowDown />
       <Quotes />

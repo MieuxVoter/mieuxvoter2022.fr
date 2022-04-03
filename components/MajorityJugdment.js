@@ -62,7 +62,7 @@ const MajorityJugdment = ({candidates, grades, onSubmit}) => {
 
   return (<div className='ui container jm'>
     <div className='row'>
-      {candidates.map((candidate, i) => (<div className='column'><Candidate key={i} grades={grades} grade={ballot[candidate.name]} {...candidate} onClick={handleClick} /></div>))}
+      {candidates.map((candidate, i) => (<div key={i} className='column'><Candidate grades={grades} grade={ballot[candidate.name]} {...candidate} onClick={handleClick} /></div>))}
     </div>
     <div className='row'>
       <div onClick={handleSubmit} className={`fluid ui ${isDone ? '' : 'disabled'} button`}>Je vote</div>

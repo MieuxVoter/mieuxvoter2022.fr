@@ -21,7 +21,7 @@ const Candidate = ({name, photo, parti}) => (<div className='ui grid candidate'>
 
 const SingleChoice = () => (<div className='ui container sm'>
   <div className='ui grid four column'>
-    {candidates.map((candidate, i) => (<div className='column'><Candidate key={i} {...candidate} /></div>))}
+    {candidates.map((candidate, i) => (<div key={i} className='column'><Candidate  {...candidate} /></div>))}
   </div>
 </div>)
 

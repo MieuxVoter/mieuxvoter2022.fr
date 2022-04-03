@@ -85,7 +85,14 @@ color: #6B6B6B;
 .bigarrowdown {
 display: flex;
 justify-content: center;
-margin: 100px 0;
+margin-top: 20px;
+margin-botton: 20px;
+}
+.divider .bigarrowdown {
+position: relative;
+top: -40px;
+margin-top: 0px;
+margin-botton: 0px;
 }
 
 
@@ -104,8 +111,7 @@ flex-direction: column;
 transform: rotate(-2deg);
 margin: 0 auto;
 }
-
-p {
+.card-chrono p {
 margin: 0 auto;
 margin-top: 50px;
 position: relative;
@@ -209,14 +215,20 @@ height: 6px;
 }
 
 
+.calltoaction {
+  margin: 100px auto;
+  width: fit-content;
+}
+
 /** num ballots **/
 .num-ballots {
 background: url('/num-ballots.png') no-repeat;
 margin: 0 auto;
+margin-bottom: 100px;
 height: 263px;
 width: 978px;
 display: flex;
-justify-content: center;
+align-items: center;
 flex-direction: column;
 }
 .num-ballots .subtitle {
@@ -243,15 +255,25 @@ letter-spacing: -0.02em;
 text-transform: uppercase;
 color: #6B6B6B;
 }
-.num-ballots h5 {
+.num-ballots .overlap {
 position: relative;
 border: 4px solid @white;
-top: 32px;
+top: 50px;
+}
+.num-ballots .overlap .button {
+margin-right: 0px !important;
+}
+
+.versus  {
+margin-top: 50px;
+margin-bottom: 50px;
 }
 .versus .vs {
-margin: 0 auto;
-position: relative;
-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 .versus ul {
 width: 359px;
@@ -269,6 +291,9 @@ color: #6D6D6D;
 }
 
 
+.advantages {
+margin-top: 50px;
+}
 .advantages h2 {
 font-size: 36px !important;
 }
@@ -362,4 +387,51 @@ box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.06), 0px 2px 1px rgba(0, 0, 0, 0.03);
 border-radius: 8px;
 margin: 8px 5px;
 padding: 10px;
+}
+
+
+/** Page Voter: Summary **/
+.ui.summary  {
+border: 1px solid @blue;
+margin-bottom: 100px;
+}
+.ui.summary .bigarrowdown {
+margin-top: 0px !important;
+}
+.ui.summary .column {
+padding: 0 !important;
+}
+.ui.summary .left {
+background-color: @blue;
+padding: 56px 74px;
+color: @white;
+}
+.ui.summary .ballot {
+background: url('/ballot-bl-corner.svg') no-repeat;
+background-position: bottom left;
+height: 100%;
+}
+.ui.summary .redscore {
+font-family: 'Outfit';
+font-style: normal;
+font-weight: 700;
+font-size: 48px;
+line-height: 60px;
+letter-spacing: -0.02em;
+text-transform: uppercase;
+color: @red;
+}
+.ui.summary .legend {
+font-family: 'Outfit';
+font-style: normal;
+font-weight: 500;
+font-size: 16.184px;
+line-height: 20px;
+letter-spacing: -0.02em;
+text-transform: uppercase;
+color: #6B6B6B;
+}
+.ui.summary .stats {
+ margin-top: 49px;
+ margin-left: 197px;
 }
