@@ -71,8 +71,8 @@ const Head = (props) => (
 );
 
 const Summary = (props) => {
-  const numParticipantsK = parseInt(props.numParticipants / 1000);
-  const numVotesK = parseInt(props.numVotes / 1000);
+  const numParticipantsK = props.numParticipants < 1000 ? '-' : parseInt(props.numParticipants / 1000);
+  const numVotesK = props.numVotes < 1000 ? '-' : parseInt(props.numVotes / 1000);
 
   return (
     <div id='summary' className='ui container summary'>

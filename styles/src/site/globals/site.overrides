@@ -36,16 +36,6 @@
   font-weight: 700;
 }
 
-.page {
-max-width: @page-width;
-margin: 0 auto;
-padding: 124px 0px;
-display: flex;
-justify-content: center;
-flex-direction: column;
-text-align: center;
-}
-
 .ui.link {
 cursor:pointer;
 }
@@ -85,6 +75,7 @@ color: #6B6B6B;
 .bigarrowdown {
 display: flex;
 justify-content: center;
+width: 100%;
 margin-top: 20px;
 margin-botton: 20px;
 }
@@ -101,7 +92,11 @@ margin-botton: 0px;
 display: flex;
 justify-content: center;
 flex-direction: column;
+}
+@media only screen and (min-width: @computerBreakpoint) {
+.card-chrono {
  padding: 0 20%;
+}
 }
 .card-chrono h3 {
  max-width: 400px;
@@ -113,9 +108,7 @@ margin: 0 auto;
 }
 .card-chrono p {
 margin: 0 auto;
-margin-top: 50px;
-position: relative;
-top: 50px;
+margin-top: 50px !important;
 
 font-family: DMSans;
 font-style: normal;
@@ -276,7 +269,7 @@ margin-bottom: 50px;
   width: 100%;
 }
 .versus ul {
-width: 359px;
+max-width: 359px;
 margin: 0 auto;
 }
 .versus li {
@@ -307,8 +300,6 @@ margin-bottom: 100px;
   transform: scale(-1, -1);
 }
 .quotes .quote {
-width: 455px;
-height: 185px;
 font-family: DMSans;
 font-style: italic;
 font-weight: 400;
@@ -319,7 +310,6 @@ color: @darkBlue;
 }
 .quotes .author {
 margin-top: 20px;
-width: 461px;
 height: 21px;
 font-family: DMSans;
 font-style: normal;
@@ -476,3 +466,10 @@ margin: 50px auto;
 color: @blue;
 cursor: pointer;
 }
+
+/** Page faq **/
+.faq p {
+font-family: DMSans;
+color: @grey;
+}
+

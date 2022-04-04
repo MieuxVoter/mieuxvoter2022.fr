@@ -5,7 +5,7 @@ const Counter = ({progress, total}) => (<div className='counter'>
   <div className='row'>
     <div className='stat'>
       <span className='avatar'><Image src={avatar} alt='logo avatar' /></span>
-      <span className='current'>{`${parseInt(progress / 1000)} ${progress % 1000}`}</span>
+      <span className='current'>{`${progress < 1000 ? '' : parseInt(progress / 1000)} ${progress % 1000}`}</span>
       <span className='participants'>participants</span>
     </div>
     <div className='progress'>

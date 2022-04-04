@@ -60,11 +60,11 @@ const Head = (props) => (
     </div>
 
     <Link href='/voter'>
-      <div className="ui big blue primary down button">Participer à l’expérience <i className="right arrow icon"></i></div>
+      <div className="ui big blue primary  button">Participer à l’expérience <i className="right arrow icon"></i></div>
     </Link>
 
     <Link href='/faq'>
-      <div className="ui tertiary blue down button">En savoir plus</div>
+      <div className="ui tertiary blue  button">En savoir plus</div>
     </Link>
 
 
@@ -80,9 +80,11 @@ const Chrono = (props) => {
 
   return (
     <div id='chrono' className='ui container'>
-      <div className="ui two column grid">
+      <div className="ui two column stackable grid">
         <div className='right-arrow-1'>
-          <Image src={rightArrow} />
+          <div className='ui computer only grid'>
+            <Image src={rightArrow} />
+          </div>
         </div>
         <div className="row">
           <div className="column">
@@ -106,11 +108,15 @@ const Chrono = (props) => {
         </div>
         <div className="row">
           <div className="pig-arrow">
-            <Image src={pigArrow} />
+            <div className='ui computer only grid'>
+              <Image src={pigArrow} />
+            </div>
           </div>
         </div>
         <div className='right-arrow-2'>
-          <Image src={rightArrow} />
+          <div className='ui computer only grid'>
+            <Image src={rightArrow} />
+          </div>
         </div>
         <div className="row">
           <div className="column">
@@ -144,15 +150,17 @@ const Chrono = (props) => {
 
 const NumBallots = ({numVotes}) => (
   <div className='ui container'>
-    <div className='num-ballots'>
-      <h2 className='ui header subtitle'>Déjà, plus de</h2>
-      <div className='num-votes'>{parseInt(numVotes / 1000)}K</div>
-      <div className='votes'>VOTES</div>
-      <a href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvoterutile.fr'>
-        <div className='overlap'>
-          <div className="ui big primary button">Je partage l&apos;expérience <i className="right arrow icon"></i></div>
-        </div>
-      </a>
+    <div className='ui grid computer only'>
+      <div className='num-ballots '>
+        <h2 className='ui header subtitle'>Déjà, plus de</h2>
+        <div className='num-votes'>{parseInt(numVotes / 1000)}K</div>
+        <div className='votes'>VOTES</div>
+        <a href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvoterutile.fr'>
+          <div className='overlap'>
+            <div className="ui big primary button">Je partage l&apos;expérience <i className="right arrow icon"></i></div>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 );
@@ -160,7 +168,7 @@ const NumBallots = ({numVotes}) => (
 const Versus = () => (
   <div className='ui container'>
     <div className='versus row'>
-      <div className="ui two column grid">
+      <div className="ui two column stackable grid">
         <div className='ui seven wide column'>
           <h3 className='ui header'>Vote jugement majoritaire</h3>
           <ul>
@@ -195,7 +203,7 @@ const Versus = () => (
 const Advantages = () => (
   <div className='ui container'>
     <div className='advantages row'>
-      <div className="ui three column grid">
+      <div className="ui three column stackable grid">
         <div className='column'>
           <h2 className='ui header'>Fin du vote utile</h2>
           <p>Le vote utile disparait puisque l’on peut évaluer positivement plusieurs candidats.</p>
@@ -217,7 +225,7 @@ const Advantages = () => (
 
 const Quotes = () => (
   <div className='row quotes'>
-    <div className="ui two column grid">
+    <div className="ui two column stackable grid">
       <div className='column img'>
         <Image src={researcher} alt='Rida Laraki' />
       </div>
