@@ -472,4 +472,8 @@ cursor: pointer;
 font-family: DMSans;
 color: @grey;
 }
+.ui.grid p {
+font-family: DMSans;
+color: @grey;
+}
 
