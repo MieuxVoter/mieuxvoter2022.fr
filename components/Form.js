@@ -6,27 +6,37 @@ import {candidates} from '../lib/constants'
 
 
 const Field = ({type, text, options, onChange, name}) => {
-  let Component = null
-
   if (type == 'mail') {
-    Component = (<div className="ui input">
-      <input type="email" onChange={onChange} name={name} />
+    return (<div className='row'>
+      <h3>{text}</h3>
+      <div className='ui input'>
+        <input type="email" data-name={name} data-type={type} onChange={onChange} name={name} />
+      </div>
     </div>)
-  } else if (type == 'mail') {
-    Component = (
-      <div className="field">
-        <div className="ui radio checkbox">
-          {options.map((opt, i) => <><input key={i} type="radio" name={name} /><label>{opt}</label></>)}
+  } else if (type == 'text') {
+    return (<div className='row'>
+      <h3>{text}</h3>
+      <div className='ui input'>
+        <input type="text" data-name={name} data-type={type} onChange={onChange} name={name} />
+      </div>
+    </div>)
+  } else if (type == 'radio') {
+    return (
+      <div className='row'>
+        <h3>{text}</h3>
+        <div className="grouped fields">
+          {options.map((opt, i) => (
+            <div className="field" key={i}>
+              <div className="ui radio checkbox">
+                <input type="radio" onChange={onChange} data-type={type} data-name={name} data-value={opt} value={opt} name={name} /><label>{opt}</label>
+              </div>
+            </div>
+          ))}
         </div>
       </div>)
   } else {
     throw 'Not implemented'
   }
-
-  return (<div className='ui row'>
-    <label>{text}</label>
-    <Component />
-  </div>)
 }
 
 const Form = ({onSubmit}) => {
@@ -45,25 +55,21 @@ const Form = ({onSubmit}) => {
 
   const check = () => {
     // TODO: check carefully each field is OK
-    return data.zipCode !== ""
+    console.log(data)
+    return true
   }
 
-  const handleChange = (e, target) => {
-    let {name, value, checked} = target
-    if (checked !== undefined) {
-      value = checked
+  const handleChange = (e) => {
+    let {name, value, type} = e.target.dataset
+    if (type == 'mail' || type == 'text') {
+      value = e.target.value;
     }
-    console.log(data)
-    console.log(target, value, name)
-
-    setData({
-      [name]: value,
-    })
+    setData(prevData => ({...prevData, [name]: value}))
   }
 
   const handleSubmit = () => {
-    if (!this.check()) {
-      setError('Veuillez juger tous les candidats.')
+    if (!check()) {
+      setError('Une option est invalide !')
       const timer = setTimeout(() => {
         setError(undefined);
       }, 3000);
@@ -121,13 +127,18 @@ const Form = ({onSubmit}) => {
       text: 'Quel est votre genre ?',
       type: 'radio',
       options: ['Homme', 'Femme'],
-      name: 'genre',
+      name: 'gender',
     },
     {
       text: 'Vous venez de voter au scrutin par jugement majoritaire. A l’avenir, seriez-vous favorable ou défavorable à l’application de ce mode de scrutin pour l’élection présidentielle en France?',
       type: 'radio',
       options: ['Tout-à-fait favorable', 'Plutôt favorable', 'Plutôt défavorable', 'Tout-à-fait défavorable'],
       name: 'appreciation',
+    },
+    {
+      text: 'Quel est votre code postal',
+      type: 'text',
+      name: 'zipCode',
     },
     {
       text: 'Si vous souhaitez être informé·e des résultats de notre expérience, ajoutez votre courriel. Nous ne vous contacterons pour aucun autre motif.',
@@ -141,19 +152,19 @@ const Form = ({onSubmit}) => {
     <div className='ui container'>
       <Message title={<h3>Collection des informations personnels</h3>}>
         <p>
-          Étant accessible par tout le monde, les votes collectés sur cette plateforme comporte des biais. Nous souhaitons mesurer ces biais en collectant des informations personnels et en les comparant avec les résultats obtenus dans nos sondages réalisés avec Opinion Way.
-          <Link href='/faq'><span className='ui lien'>Plus de détails</span></Link>
+          Étant accessible par tout le monde, les votes collectés sur cette plateforme comporte des biais. Nous souhaitons mesurer ces biais en collectant des informations personnels et en les comparant avec les résultats obtenus dans nos sondages réalisés avec Opinion Way.{' '}
+          <Link href='/faq'><span className='ui lien'>Plus de détails.</span></Link>
         </p>
       </Message>
 
       {error && <ErrorToast msg={error} />}
 
       <form className="ui form">
-        <div className="field">
-          {fields.map((f, i) => <Field key={i} onChange={handleChange} {...f} />)}
-          <div className='row'>
-            <div onClick={handleSubmit} className="fluid ui  button">Valider</div>
-          </div>
+        {fields.map((f, i) => <Field key={i} onChange={handleChange} {...f} />)}
+        <br />
+        <br />
+        <div className='row'>
+          <div onClick={handleSubmit} className="fluid ui  button">Valider</div>
         </div>
       </form>
 

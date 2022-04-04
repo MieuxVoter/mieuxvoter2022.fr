@@ -61,6 +61,18 @@ const MajorityJugdment = ({candidates, grades, onSubmit}) => {
   }
 
   return (<div className='ui container jm'>
+    <h2> Pour présider la France, ayant pris tous les éléments en compte, jugez-vous en conscience
+      que ce(tte) candidat(e) serait…</h2>
+    <p>
+      Dans le cadre de cette étude, vous êtes amenés à vous prononcer sur les candidats à l&apos;élection présidentielle selon deux modes de scrutin différents : le scrutin
+      uninominal majoritaire et le scrutin par jugement majoritaire.
+    </p>
+    <p>
+      Le jugement majoritaire est un mode de scrutin où l&apos;électeur doit évaluer tous les
+      candidats indépendamment les uns des autres, en leur attribuant une mention sur
+      une échelle qui va de « Excellent » à « A rejeter ». Le candidat le mieux évalué par
+      une majorité remporte l’élection. »
+    </p>
     <div className='row'>
       {candidates.map((candidate, i) => (<div key={i} className='column'><Candidate grades={grades} grade={ballot[candidate.name]} {...candidate} onClick={handleClick} /></div>))}
     </div>

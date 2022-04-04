@@ -19,6 +19,16 @@ const Candidate = ({name, photo, parti, onSubmit}) => (<div className='ui  candi
 
 
 const SingleChoice = ({onSubmit}) => (<div className='ui container sm'>
+  <h2> Pour présider la France, ayant pris tous les éléments en compte, jugez-vous en conscience
+    que ce(tte) candidat(e) serait…</h2>
+  <p>
+    Le scrutin uninominal majoritaire est le mode de scrutin en vigueur pour l&apos;élection
+    présidentielle de 2022. Il demande à l’électeur de choisir un candidat.
+  </p>
+  <p>
+    Dans le cadre de cette étude, vous êtes amenés à vous prononcer sur les candidats à l&apos;élection présidentielle selon deux modes de scrutin différents : le scrutin
+    uninominal majoritaire et le scrutin par jugement majoritaire.
+  </p>
   <div className='ui grid three column'>
     {candidates.map((candidate, i) => (<div key={i} className='column'><Candidate onSubmit={onSubmit} {...candidate} /></div>))}
   </div>

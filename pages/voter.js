@@ -11,8 +11,7 @@ import Done from '../components/Done'
 import Form from '../components/Form'
 import {candidates, grades} from '../lib/constants'
 import {shuffleArray} from '../lib/utils'
-import {personalData, connect} from '../lib/database'
-import {storePersonalData, storeBallot} from '../lib/database'
+import {useUser, getNumVotes, getNumParticipants} from '../lib/database'
 
 
 export async function getStaticProps() {
@@ -23,9 +22,10 @@ export async function getStaticProps() {
     props: {
       remain: remainDays,
       goalParticipants: process.env.GOAL_PARTICIPANTS,
-      numParticipants: process.env.NUM_PARTICIPANTS,
-      numVotes: process.env.NUM_VOTES,
-    }
+      numParticipants: await getNumParticipants(),
+      numVotes: await getNumVotes(),
+    },
+    revalidate: 3600,
   }
 }
 
@@ -112,43 +112,55 @@ const Summary = (props) => {
 
 
 export default function Voter(props) {
-  connect()
-  const [stage, setStage] = useState(personalData && personalData.step);
+  const defaultUser = {'mj': false, 'sm': false, 'step': Math.random() > 0.5 ? 'mj' : 'sm'};
+  const {personalData, user, userLoading, setPersonalData, storeBallot, error} = useUser(defaultUser);
+  const [loading, setLoading] = useState(true);
   const ballotCandidates = [...candidates]
   shuffleArray(ballotCandidates)
 
+
   useEffect(() => {
-    if (personalData && personalData.step) {
-      setStage(personalData.step);
+    if (personalData && user && !userLoading) {
+      setLoading(false);
     }
-  }, [personalData])
+  }, [personalData, userLoading, user])
+
+  if (loading) {
+    return (<div className='ui voter'>
+      <Head {...props} />
+      <Summary {...props} />
+      <div className="ui active inverted dimmer">
+        <div className="ui text loader">Loading</div>
+      </div>
+      <Footer />
+    </div>)
+  }
 
   const handleSubmit = (ballotOrPersonal) => {
-    if (stage == 'info') {
-      Object.keys(ballotOrPersonal).forEach(k => {personalData[k] = ballotOrPersonal[k]});
-      storePersonalData(personalData)
-      setStage('done')
-    } else if (stage == 'mj') {
-      personalData.step = personalData.sm ? 'info' : 'sm'
-      storePersonalData(personalData)
-      storeBallot(ballotOrPersonal, stage)
-      setStage(personalData.step)
-    } else if (stage == 'sm') {
-      personalData.step = personalData.mj ? 'info' : 'mj'
-      storePersonalData(personalData)
-      storeBallot(ballotOrPersonal, stage)
-      setStage(personalData.step)
+    if (personalData.step == 'info') {
+      setPersonalData(old => ({...old, ...ballotOrPersonal, step: 'done'}))
+      setLoading(true);
+    } else if (personalData.step == 'mj') {
+      const step = personalData.sm ? 'info' : 'sm'
+      setPersonalData(old => ({...old, step}))
+      storeBallot(ballotOrPersonal, personalData.step)
+      setLoading(true);
+    } else if (personalData.step == 'sm') {
+      const step = personalData.mj ? 'info' : 'mj'
+      setPersonalData(old => ({...old, step}))
+      storeBallot(ballotOrPersonal, personalData.step)
+      setLoading(true);
     }
   }
 
   let Component = null
-  if (stage == 'mj') {
+  if (personalData.step == 'mj') {
     Component = MajorityJugdment
   }
-  else if (stage == 'sm') {
+  else if (personalData.step == 'sm') {
     Component = SingleChoice
   }
-  else if (stage == 'info') {
+  else if (personalData.step == 'info') {
     Component = Form
   }
   else {

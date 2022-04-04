@@ -14,6 +14,7 @@ import Calendar from '../components/Calendar'
 import Counter from '../components/Counter'
 import BigArrowDown from '../components/BigArrowDown'
 import Footer from '../components/Footer'
+import {getNumVotes, getNumParticipants} from '../lib/database'
 
 
 export async function getStaticProps() {
@@ -24,9 +25,10 @@ export async function getStaticProps() {
     props: {
       remain: remainDays,
       goalParticipants: process.env.GOAL_PARTICIPANTS,
-      numParticipants: process.env.NUM_PARTICIPANTS,
-      numVotes: process.env.NUM_VOTES,
-    }
+      numParticipants: await getNumParticipants(),
+      numVotes: await getNumVotes(),
+    },
+    revalidate: 3600,
   }
 }
 
