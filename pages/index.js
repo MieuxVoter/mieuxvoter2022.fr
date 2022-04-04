@@ -56,7 +56,7 @@ const Head = (props) => (
       Notre démocratie est malade de son mode de scrutin. Vote utile, vote contre, vote barrage, vote blanc : autant de symptômes d’un système qui dysfonctionne.  Ensemble démontrons que l’on peut refaire société différemment et  libérons les citoyens de ce carcan.
     </div>
     <div className='content'>
-      Notre but : exhorter la ou le prochain locataire de l’Elysée à révolutionner les élections avec le jugement majoritaire.
+      Notre but : démontrer aux femmes et hommes politiques qu&apos;il est possible et nécessaire de révolutionner les élections avec le jugement majoritaire.
     </div>
 
     <Link href='/voter'>
