@@ -1,34 +1,3 @@
-
-Skip to content
-Pull requests
-Issues
-Marketplace
-Explore
-@davidchavalarias
-MieuxVoter /
-voterutile
-Public
-
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-
-    Settings
-
-voterutile/pages/index.js /
-@guhur
-guhur fix: responsive
-Latest commit 491e9bf 11 hours ago
-History
-2 contributors
-@guhur
-@davidchavalarias
-268 lines (245 sloc) 9.6 KB
 import Image from 'next/image'
 import Link from 'next/link'
 import facebook from '../public/facebook.svg'
@@ -297,19 +266,3 @@ export default function Home(props) {
     </div>
   )
 }
-
-    © 2022 GitHub, Inc.
-
-    Terms
-    Privacy
-    Security
-    Status
-    Docs
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
-
-Loading complete
