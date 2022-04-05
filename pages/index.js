@@ -88,7 +88,7 @@ const Chrono = (props) => {
             <div className=" card-chrono">
               <h4 className='ui header'>01</h4>
               <h3 className='ui header'>Un système de vote pour révolutionner la démocratie</h3>
-              <p>Au lieu de ne pouvoir choisir qu’un seul candidat, ce qui ne dit rien sur ce que vous pensez des autres ni du candidat lui même, exprimez vous sur tous les candidats sur une échelle de mentions de « Excellent » à « À rejeter ». Le candidat le mieux évalué l’emporte.</p>
+              <p>Au lieu de ne pouvoir choisir qu&apos;un seul candidat, ce qui ne dit rien sur ce que vous pensez des autres ni du candidat lui même, exprimez vous sur tous les candidats sur une échelle de mentions de « Excellent » à « À rejeter ». Le candidat le mieux évalué l&apos;emporte.</p>
             </div>
           </div>
           <div className="column">

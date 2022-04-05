@@ -88,7 +88,7 @@ const Faq = () => (
         Qui organise cette expérience ?
       </h3>
       <p>
-        L'association Mieux Voter en partenariat avec le CNRS. Deux directeurs de recherche au CNRS et un doctorant à l’ENS/INRIA coordonnent l&apos;opération. L’un des organisateurs est aussi co-inventeur du jugement majoritaire.
+        L&apos;association Mieux Voter en partenariat avec le CNRS. Deux directeurs de recherche au CNRS et un doctorant à l’ENS/INRIA coordonnent l&apos;opération. L’un des organisateurs est aussi co-inventeur du jugement majoritaire.
       </p>
 
 
