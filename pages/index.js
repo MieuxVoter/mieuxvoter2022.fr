@@ -36,18 +36,15 @@ const Head = (props) => (
   <div className='ui head'>
 
     <div className="ui navigation">
-      <div className="right">
-        <a rel="noreferrer" target="_blank" href="https://www.facebook.com/mieuxvoter.fr" className='social'>
-          <Image src={facebook} alt='facebook logo' />
-        </a>
-        <a rel="noreferrer" target="_blank" href="twitter.com/mieux_voter" className='social'>
-          <Image src={twitter} alt='twitter logo' />
-        </a>
-        <div className='ui button secondary'>
-          <Link className="ui ensavoirplus" href='/faq'>Questions fréquentes</Link>
-        </div>
+      <a rel="noreferrer" target="_blank" href="https://www.facebook.com/mieuxvoter.fr" className='social'>
+        <Image src={facebook} alt='facebook logo' />
+      </a>
+      <a rel="noreferrer" target="_blank" href="twitter.com/mieux_voter" className='social'>
+        <Image src={twitter} alt='twitter logo' />
+      </a>
+      <div className='ui button secondary'>
+        <Link className="ui ensavoirplus" href='/faq'>Questions fréquentes</Link>
       </div>
-
     </div>
 
     <Title />
@@ -100,7 +97,7 @@ const Chrono = (props) => {
               <h3 className='ui header'>Pesons dans le débat en atteignant {goalParticipantsK}K participants !</h3>
               <Counter progress={props.numParticipants} total={props.goalParticipants} />
               <Link href='/voter'>
-                <h5 className="ui big primary button">Je participe à la recherche  <i className="right arrow icon"></i></h5>
+                <div className="ui big primary fluid button">Je participe à la recherche  <i className="right arrow icon"></i></div>
               </Link>
 
             </div>

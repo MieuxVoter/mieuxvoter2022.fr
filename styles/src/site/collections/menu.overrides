@@ -29,8 +29,9 @@ text-align: center;
 .head .navigation {
 width: 100%;
 display: flex;
-justify-content: space-between;
-align-items: stretch;
+justify-content: right;
+padding-right: 2em;
+align-items: center;
 }
 .head h2 {
 max-width: 620px;

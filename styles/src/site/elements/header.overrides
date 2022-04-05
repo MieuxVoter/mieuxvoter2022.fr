@@ -37,6 +37,9 @@ transform: rotate(-2.16deg);
 }
 
 
+.logo {
+cursor: pointer !important;
+}
 
 h3.ui.header {
 font-family: 'Outfit';

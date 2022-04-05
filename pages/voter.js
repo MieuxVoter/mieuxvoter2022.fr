@@ -40,26 +40,26 @@ export async function getStaticProps() {
 const Head = (props) => (
   <div className='head'>
 
-
-    <div className="ui container">
-
-      <div className="ui top secondary menu">
-        <div className="ui container">
-          <div className="right menu">
-            <a rel="noreferrer" target="_blank" href="https://www.facebook.com/mieuxvoter.fr" className='social'>
-              <Image src={facebook} alt='facebook logo' />
-            </a>
-            <a rel="noreferrer" target="_blank" href="twitter.com/mieux_voter" className='social'>
-              <Image src={twitter} alt='twitter logo' />
-            </a>
-            <div className='ui button secondary'>
-              <Link className="ui ensavoirplus" href='/faq'>Questions fréquentes</Link>
-            </div>
+    <div className="ui navigation">
+      <a rel="noreferrer" target="_blank" href="https://www.facebook.com/mieuxvoter.fr" className='social'>
+        <Image src={facebook} alt='facebook logo' />
+      </a>
+      <a rel="noreferrer" target="_blank" href="twitter.com/mieux_voter" className='social'>
+        <Image src={twitter} alt='twitter logo' />
+      </a>
+      <Link className="ui ensavoirplus " href='/'>
+        <div className='ui tablet computer only grid'>
+          <div className='ui button  secondary'>
+            <i className="left arrow icon"></i>
+            Accueil
           </div>
         </div>
+      </Link>
+      <div className='ui button secondary'>
+        <Link className="ui ensavoirplus" href='/faq'>Questions fréquentes</Link>
       </div>
-
     </div>
+
 
     <div className="ui title">
       <Title />
