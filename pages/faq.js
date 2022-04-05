@@ -91,7 +91,6 @@ const Faq = () => (
         L&apos;association Mieux Voter en partenariat avec le CNRS. Deux directeurs de recherche au CNRS et un doctorant à l’ENS/INRIA coordonnent l&apos;opération. L’un des organisateurs est aussi co-inventeur du jugement majoritaire.
       </p>
 
-
       <h3 className='ui header'>
         Pourquoi demandez-vous des informations personnelles ?
       </h3>
