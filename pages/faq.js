@@ -53,10 +53,10 @@ const Head = (props) => (
     <Title />
     <h2 className='ui header subtitle'>Votez utile, pour la dernière fois !</h2>
     <div className='content'>
-      Notre démocratie est malade de son mode de scrutin. Vote utile, vote contre, vote barrage, vote blanc : autant de symptômes d’un système qui dysfonctionne.  Ensemble démontrons que l’on peut refaire société différemment et  libérons les citoyens de ce carcan.
+      Notre démocratie est malade de son mode de scrutin. Vote utile, vote contre, vote barrage, vote blanc : autant de symptômes d’un système qui dysfonctionne. La recherche Française a conçu un nouveau mode de scrutin, le jugement majoritaire, qui libère la société de ce carcan et ouvre la voie vers une vie démocratique plus saine.
     </div>
     <div className='content'>
-      Notre but : démontrer aux femmes et hommes politiques qu&apos;il est possible et nécessaire de révolutionner les élections avec le jugement majoritaire.
+      Notre but : expérimenter massivement ce nouveau système de vote et exhorter la ou le prochain locataire de l&apos;Elysée à ouvrir un débat sur une réforme électorale et les nouveaux modes de scrutins.
     </div>
 
     <Link href='/voter'>
