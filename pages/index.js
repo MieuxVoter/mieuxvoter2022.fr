@@ -130,7 +130,7 @@ const Chrono = (props) => {
             <div className=" card-chrono">
               <h4 className='ui header'>04</h4>
               <Image src={idea} alt='idea' />
-              <h3 className='ui header'>Il n’y a pas de fatalité, il faut réformer la présidentielle</h3>
+              <h3 className='ui header'>Il n’y a pas de fatalité, on peut réformer la présidentielle</h3>
             </div>
           </div>
         </div>
