@@ -83,7 +83,7 @@ const Faq = () => (
         Qui organise cette expérience ?
       </h3>
       <p>
-        Deux directeurs de recherche au CNRS et un doctorant à l’ENS/INRIA, l’un des organisateurs est aussi co-inventeur du jugement majoritaire.
+        L'association Mieux Voter en partenariat avec le CNRS. Deux directeurs de recherche au CNRS et un doctorant à l’ENS/INRIA coordonnent l&apos;opération. L’un des organisateurs est aussi co-inventeur du jugement majoritaire.
       </p>
 
 
@@ -91,7 +91,7 @@ const Faq = () => (
         Pourquoi demandez-vous des informations personnelles ?
       </h3>
       <p>
-        Afin de pouvoir interpréter correctement les résultats et en particulier les comparer avec les données d’une série de sondage qu’on a commandé à OpinionWay.
+        Ces informations, qui préservent l&apos;anonymat, nous permettront d&apos;interpréter correctement les résultats et en particulier les comparer avec les données d’une série de sondage qu’on a commandé à OpinionWay. En comparant l&apos;effet de variable socio-démographiques au sein d&apos;une même cohorte nous pourront pas ailleurs mieux comprendre des effets tels que l&apos;âge ou la localisation géographique sur le vote.
       </p>
 
       <h3 className='ui header'>
@@ -99,7 +99,7 @@ const Faq = () => (
       </h3>
 
       <p>
-        Absolument pas. Nous sommes des scientifiques. Cependant, nous sommes aussi membres bénévoles de l’association Mieux Voter qui promeut le jugement majoritaire.
+        Absolument pas. Nous sommes des scientifiques. Cependant, nous sommes aussi membres bénévoles de l’association Mieux Voter qui promeut le jugement majoritaire de manière transpartisane.
       </p>
 
       <h3 className='ui header'>
@@ -107,7 +107,7 @@ const Faq = () => (
       </h3>
 
       <p>
-        Cette consultation viendra compléter une campagne de trois sondages OpinionWay visant à comprendre comment le recours au jugement majoritaire permettrait d&apos;améliorer les processus démocratiques (lutte contre le vote utile, l&apos;abstention, etc.).  L’expérience permettra aussi de familiariser les électeurs avec une innovation électorale et d’alimenter la recherche sur une science datant de la Révolution Française avec Borda et Condorcet.
+        Cette consultation viendra compléter une campagne de trois sondages OpinionWay visant à comprendre comment le recours au jugement majoritaire permettrait d&apos;améliorer les processus démocratiques (lutte contre le vote utile, l&apos;abstention, etc.).  L’expérience permettra aussi de mieux comprendre comment les électeurs peuvent s&apos;approprier une innovation électorale et d’alimenter la recherche sur une science datant de la Révolution Française avec Borda et Condorcet.
       </p>
 
       <h3 className='ui header'>
@@ -115,7 +115,7 @@ const Faq = () => (
       </h3>
 
       <p>
-        Les données récoltées seront analysées par les organisateurs puis mises à disposition de la communauté scientifique. Il est important de tester les nouveaux modes de scrutin dans différents environnements. Aussi, puisque le jugement majoritaire ambitionne d’être une alternative au scrutin uninominal, il est important que le grand public y soit familiarisé et y adhère.
+        Les données récoltées seront analysées de manière anonyme par les organisateurs puis mises à disposition de la communauté scientifique. Il est important de tester les nouveaux modes de scrutin dans différents environnements. Aussi, puisque le jugement majoritaire ambitionne d’être une alternative au scrutin uninominal, il est important que le grand public l&apos;expérimente et puisse le comparer avec d&apos;autres expériences de vote.
       </p>
 
       <h3 className='ui header'>
