@@ -29,7 +29,7 @@ const SingleChoice = ({onSubmit}) => (<div className='ui container sm'>
     Dans le cadre de cette étude, vous êtes amenés à vous prononcer sur les candidats à l&apos;élection présidentielle selon deux modes de scrutin différents : le scrutin
     uninominal majoritaire et le scrutin par jugement majoritaire.
   </p>
-  <div className='ui grid three column'>
+  <div className='ui doubling stackable grid three column'>
     {candidates.map((candidate, i) => (<div key={i} className='column'><Candidate onSubmit={onSubmit} {...candidate} /></div>))}
   </div>
 </div>)

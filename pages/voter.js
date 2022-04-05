@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import facebook from '../public/facebook.svg'
 import twitter from '../public/twitter.svg'
 import Title from '../components/Title'
@@ -52,7 +53,7 @@ const Head = (props) => (
               <Image src={twitter} alt='twitter logo' />
             </a>
             <div className='ui button secondary'>
-              <a className="ui ensavoirplus" href='/faq'>Questions fréquentes</a>
+              <Link className="ui ensavoirplus" href='/faq'>Questions fréquentes</Link>
             </div>
           </div>
         </div>
@@ -76,7 +77,7 @@ const Summary = (props) => {
 
   return (
     <div id='summary' className='ui container summary'>
-      <div className="ui two column grid">
+      <div className="ui two column stackable grid">
         <div className="row">
           <div className='column'>
             <div className='left'>

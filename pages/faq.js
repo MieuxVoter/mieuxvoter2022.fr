@@ -44,7 +44,7 @@ const Head = (props) => (
           <Image src={twitter} alt='twitter logo' />
         </a>
         <div className='ui button secondary'>
-          <a className="ui ensavoirplus" href='/faq'>Questions fréquentes</a>
+          <Link className="ui ensavoirplus" href='/faq'>Questions fréquentes</Link>
         </div>
       </div>
 

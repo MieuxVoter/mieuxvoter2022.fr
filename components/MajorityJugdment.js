@@ -13,7 +13,7 @@ const Candidate = ({name, photo, parti, onClick, grade, grades}) => {
   }
 
   return (<div className='ui candidate'>
-    <div className='ui grid '>
+    <div className='ui stackable grid '>
       <div className='ui two wide column'>
         <div className='photo'>
           <Image src={photo} width={92} height={92} alt={name} />

@@ -74,6 +74,11 @@ transform: rotate(-2deg);
 color: @white;
 text-align: left;
 }
+.ui.summary p {
+color: @white;
+text-align: left;
+}
+
 
 /** Page FAQ **/
 .faq h3 {

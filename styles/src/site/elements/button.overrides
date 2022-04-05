@@ -96,7 +96,20 @@ background-color: @blue;
 color: @white;
 }
 
+.footer .button {
+margin-top: 40px;
+margin-bottom: 40px;
+}
 /** Jugement Majoritaire **/
 .jm .ui.button {
 pointer-events: inherit !important;
+margin-top: 3px;
+}
+
+/** Page home **/
+.num-ballots .overlap .button {
+margin-right: 0px;
+}
+.title .button {
+margin-top: 30px;
 }

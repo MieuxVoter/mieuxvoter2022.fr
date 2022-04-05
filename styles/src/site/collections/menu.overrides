@@ -20,15 +20,12 @@ flex-direction: column;
 text-align: center;
 margin-top: 40px;
 display: flex;
-width: 620px;
+max-width: 620px;
 align-items: center;
 flex-direction: column;
 text-align: center;
 }
 
-.head .button {
-margin-top: 30px;
-}
 .head .navigation {
 width: 100%;
 display: flex;
