@@ -1,3 +1,34 @@
+
+Skip to content
+Pull requests
+Issues
+Marketplace
+Explore
+@davidchavalarias
+MieuxVoter /
+voterutile
+Public
+
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+
+    Settings
+
+voterutile/pages/index.js /
+@guhur
+guhur fix: responsive
+Latest commit 491e9bf 11 hours ago
+History
+2 contributors
+@guhur
+@davidchavalarias
+268 lines (245 sloc) 9.6 KB
 import Image from 'next/image'
 import Link from 'next/link'
 import facebook from '../public/facebook.svg'
@@ -53,10 +84,10 @@ const Head = (props) => (
     <Title />
     <h2 className='ui header subtitle'>Votez utile, pour la dernière fois !</h2>
     <div className='content'>
-      Notre démocratie est malade de son mode de scrutin. Vote utile, vote contre, vote barrage, vote blanc : autant de symptômes d’un système qui dysfonctionne.  Ensemble démontrons que l’on peut refaire société différemment et  libérons les citoyens de ce carcan.
+      Notre démocratie est malade de son mode de scrutin. Vote utile, vote contre, vote barrage, vote blanc : autant de symptômes d’un système qui dysfonctionne. La recherche Française a conçu un nouveau mode de scrutin, le jugement majoritaire, qui libère la société de ce carcan et ouvre la voie vers une vie démocratique plus saine.
     </div>
     <div className='content'>
-      Notre but : démontrer aux femmes et hommes politiques qu&apos;il est possible et nécessaire de révolutionner les élections avec le jugement majoritaire.
+      <b>Notre but :</b> expérimenter massivement ce nouveau système de vote et exhorter la ou le prochain locataire de l’Elysée à ouvrir un débat sur une réforme électorale et les nouveaux modes de scrutins.
     </div>
 
     <Link href='/voter'>
@@ -91,7 +122,7 @@ const Chrono = (props) => {
             <div className=" card-chrono">
               <h4 className='ui header'>01</h4>
               <h3 className='ui header'>Un système de vote pour révolutionner la démocratie</h3>
-              <p>Au lieu de ne pouvoir choisir qu’un seul candidat, ce qui ne dit rien sur ce que vous pensez des autres ni du candidat lui même, exprimez vous sur tous les candidats sur une échelle de mentions de « Excellent » à « À rejeter ». Le candidat le mieux évalué l’emporte.</p>
+              <p>Au lieu de ne pouvoir choisir qu’un seul candidat, ce qui ne dit rien sur ce que vous pensez des autres ni du candidat lui même, exprimez vous sur tous les candidats sur une échelle de mentions de « Excellent » à « À rejeter ». Le candidat le mieux évalué l’emporte.</p>
             </div>
           </div>
           <div className="column">
@@ -172,7 +203,7 @@ const Versus = () => (
         <div className='ui seven wide column'>
           <h3 className='ui header'>Vote jugement majoritaire</h3>
           <ul>
-            <li> J’évalue tous les candidats sur une échelle mentions de « Excellent » à « À rejeter ».</li>
+            <li> J’évalue tous les candidats sur une échelle mentions de « Excellent » à « À rejeter ».</li>
             <li>Je peux mettre la même mention à deux candidats.</li>
             <li>Tous mes jugements sont pris en compte dans le classement final des candidats.</li>
             <li>Un candidat rejeté par la majorité des votants ne peut jamais être élu.</li>
@@ -266,3 +297,19 @@ export default function Home(props) {
     </div>
   )
 }
+
+    © 2022 GitHub, Inc.
+
+    Terms
+    Privacy
+    Security
+    Status
+    Docs
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+
+Loading complete
