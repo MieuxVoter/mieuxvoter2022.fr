@@ -1,10 +1,14 @@
+import {useEffect, useState} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import facebook from '../public/facebook.svg'
 import twitter from '../public/twitter.svg'
 import rightArrow from '../public/right-arrow.svg'
 import pigArrow from '../public/pig-arrow.svg'
-import researcher from '../public/research.svg'
+import ridaLaraki from '../public/rida-laraki.jpg'
+import michelBalinski from '../public/balinski.jpg'
+import davidChavalarias from '../public/david-chavalarias.jpg'
+import pierrelouisGuhur from '../public/pierrelouis-guhur.jpg'
 import quote from '../public/quote.svg'
 import labo from '../public/labo.svg'
 import idea from '../public/idea.svg'
@@ -50,10 +54,10 @@ const Head = (props) => (
     <Title />
     <h2 className='ui header subtitle'>Votez utile, pour la dernière fois !</h2>
     <div className='content'>
-      Notre démocratie est malade de son mode de scrutin. Vote utile, vote contre, vote barrage, vote blanc : autant de symptômes d’un système qui dysfonctionne. La recherche Française a conçu un nouveau mode de scrutin, le jugement majoritaire, qui libère la société de ce carcan et ouvre la voie vers une vie démocratique plus saine.
+      Notre démocratie est malade de son mode de scrutin. Vote utile, vote contre, vote barrage, vote blanc : autant de symptômes d’un système qui dysfonctionne. La recherche Française a conçu un nouveau mode de scrutin, le jugement majoritaire, qui ouvre la voie vers une vie démocratique plus saine.
     </div>
     <div className='content'>
-      <b>Notre but :</b> expérimenter massivement ce nouveau système de vote et exhorter la ou le prochain locataire de l’Elysée à ouvrir un débat sur une réforme électorale et les nouveaux modes de scrutins.
+      <b>Notre but :</b> expérimenter massivement ce nouveau système de vote et ouvrir un débat sur une réforme électorale et les nouveaux modes de scrutins.
     </div>
 
     <Link href='/voter'>
@@ -63,8 +67,6 @@ const Head = (props) => (
     <Link href='/faq'>
       <div className="ui tertiary blue  button">En savoir plus</div>
     </Link>
-
-
 
     <div className='bottomright'>
       <Calendar remain={props.remain} />
@@ -162,6 +164,7 @@ const NumBallots = ({numVotes}) => (
   </div>
 );
 
+// <li>Un candidat rejeté par la majorité des votants ne peut jamais être élu.</li>
 const Versus = () => (
   <div className='ui container'>
     <div className='versus row'>
@@ -169,10 +172,9 @@ const Versus = () => (
         <div className='ui seven wide column'>
           <h3 className='ui header'>Vote au jugement majoritaire</h3>
           <ul>
-            <li> J’évalue tous les candidats sur une échelle de mentions de « Excellent » à « À rejeter ».</li>
-            <li>Je peux mettre la même mention à deux candidats.</li>
+            <li>J’évalue tous les candidats sur une échelle de mentions de « Excellent » à « À rejeter ».</li>
+            <li>Je peux mettre la même mention à plusieurs candidats.</li>
             <li>Tous mes jugements sont pris en compte dans le classement final des candidats.</li>
-            <li>Un candidat rejeté par la majorité des votants ne peut jamais être élu.</li>
           </ul>
         </div>
         <div className='ui two wide column'>
@@ -220,22 +222,51 @@ const Advantages = () => (
   </div>
 );
 
-const Quotes = () => (
-  <div className='row quotes'>
-    <div className="ui two column stackable grid">
-      <div className='column img'>
-        <Image src={researcher} alt='Rida Laraki' />
-      </div>
-      <div className='column'>
-        <Image src={quote} alt='Quote' />
-        <div className='quote'>Arrêtons de voter pour le moins pire, évaluons la capacité des candidats à porter les bonnes idées. Le jugement majoritaire permet enfin de voter par conviction en redonnant sens au vote.</div>
-        <div className='author'>
-          David Chavalarias
+const Quotes = () => {
+  const quotes = [
+    {
+      'author': 'Rida Laraki',
+      'quote': 'Le scrutin majoritaire fait l’unanimité des chercheurs contre lui depuis la révolution française et les travaux fondateurs de Condorcet et de Borda.  Suite à l’accident démocratique de 2002, le jugement majoritaire a été conçu avec mon collègue Michel Balinski pour réparer les déboires du scrutin majoritaire et améliorer profondément les règles du jeu démocratique.',
+      'image': ridaLaraki
+    },
+    {
+      'author': 'David Chavalarias',
+      'quote': 'Arrêtons de voter pour le moins pire, évaluons la capacité des candidats à porter les bonnes idées. Le jugement majoritaire permet enfin de voter par conviction en redonnant sens au vote.',
+      'image': davidChavalarias
+    },
+    {
+      'author': 'Michel Balinski',
+      'quote': 'Les démocraties sont à la peine en France, en Europe, aux États-Unis. Les électeurs protestent. L’une des causes principales de ce malaise provient du système électoral. Il empêche les électeurs de s’exprimer et porte souvent au pouvoir des candidats non voulus. En France, des primaires – à droite, à gauche ou citoyennes – cherchent à éviter le pire […]. Des primaires avec le scrutin majoritaire sont une fausse piste. Remplacer le mode de scrutin actuel par le jugement majoritaire s’impose.',
+      'image': michelBalinski
+    },
+    {
+      'author': 'Pierre-Louis Guhur',
+      'quote': "A cause de notre mode de scrutin et de ses stratégies de vote, toute l'attention est portée sur quelques candidats. Les autres candidats, qui sont parfois les seuls à représenter des minorités sont complètement oubliés. Ce n'est pas sans raison que les jeunes se désíntéressent des élections, alors que nous avons plein d&pos;idées et convictions.",
+      'image': pierrelouisGuhur
+    },
+  ]
+
+
+  const [randQuote, setQuote] = useState(quotes[0]);
+  useEffect(() => {
+    setQuote(quotes[Math.floor(Math.random() * quotes.length)]);
+  }, []);
+
+  return (
+    <div className='row quotes'>
+      <div className="ui two column stackable grid">
+        <div className='column img'>
+          <Image src={randQuote.image} alt={randQuote.author} />
+        </div>
+        <div className='column'>
+          <Image src={quote} alt='Quote' />
+          <div className='quote'>{randQuote.quote}</div>
+          <div className='author'>{randQuote.author}</div>
         </div>
       </div>
     </div>
-  </div>
-)
+  )
+}
 
 export default function Home(props) {
   return (

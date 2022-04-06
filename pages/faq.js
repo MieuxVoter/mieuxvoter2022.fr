@@ -14,10 +14,19 @@ import Calendar from '../components/Calendar'
 import Counter from '../components/Counter'
 import BigArrowDown from '../components/BigArrowDown'
 import Footer from '../components/Footer'
+import Video from '../components/Video'
 import {getNumVotes, getNumParticipants} from '../lib/database'
 
 
 export async function getStaticProps() {
+  const matter = require('gray-matter')
+  const {join} = require('path')
+  const {readFileSync} = require('fs')
+  const videoFile = join(process.cwd(), 'content/carousel-videos.yaml')
+  const fileContents = readFileSync(videoFile, 'utf8')
+  let {data: videos, isEmpty} = matter(fileContents);
+  if (isEmpty) {videos = []}
+
   const endingDate = Date.parse(process.env.DATE_ENDING);
   const remain = endingDate - new Date()
   const remainDays = Math.max(0, parseInt(remain / 3600 / 24 / 1000));
@@ -27,6 +36,7 @@ export async function getStaticProps() {
       goalParticipants: process.env.GOAL_PARTICIPANTS,
       numParticipants: await getNumParticipants(),
       numVotes: await getNumVotes(),
+      videos,
     },
     revalidate: 3600,
   }
@@ -81,14 +91,25 @@ const Head = (props) => (
 );
 
 
-const Faq = () => (
+const Faq = ({videos}) => (
   <div className='ui container faq'>
     <div className='advantages row'>
+
+      <h3 className='ui header'>
+        Pouvez-vous m&apos;expliquer le fonctionnement du jugement majoritaire ?
+      </h3>
+
+      <p>
+        Avec plaisir ! Vous trouverez de nombreuses informations sur le <a href='https://mieuxvoter.fr/' rel='noreferrer' target='_blank'>site de Mieux Voter</a> (dont les <a href='https://mieuxvoter.fr/faq' rel='noreferrer' target='_blank'>questions fréquentes</a>). En particulier, Mieux Voter a produit cette vidéo :
+
+        {videos.map((video, i) => <Video key={i} {...video} />)}
+
+      </p>
       <h3 className='ui header'>
         Qui organise cette expérience ?
       </h3>
       <p>
-        L&apos;association Mieux Voter en partenariat avec le CNRS. Deux directeurs de recherche au CNRS et un doctorant à l’ENS/INRIA coordonnent l&apos;opération. L’un des organisateurs est aussi co-inventeur du jugement majoritaire.
+        L&apos;association Mieux Voter en partenariat avec le CNRS et Dauphine. Deux directeurs de recherche au CNRS et un doctorant à l’ENS/Inria coordonnent l&apos;opération. L’un des organisateurs est aussi co-inventeur du jugement majoritaire.
       </p>
 
       <h3 className='ui header'>
@@ -129,7 +150,6 @@ const Faq = () => (
       <p>
         En y participant au vote et en partageant avec votre entourage ou sur les réseaux sociaux. Vous pouvez aussi rejoindre les bénévoles de Mieux Voter.
       </p>
-
     </div>
   </div>
 );

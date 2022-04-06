@@ -4,7 +4,6 @@ import Title from './Title'
 import mieuxvoter from '../public/mieuxvoter.svg'
 import cnrs from '../public/cnrs.svg'
 import dauphine from '../public/dauphine.svg'
-import inria from '../public/inria.svg'
 
 const Footer = () => (
   <div className='footer'>
@@ -37,9 +36,6 @@ const Footer = () => (
       </a>
       <a rel="noreferrer" target="_blank" className='item' href='https://dauphine.psl.eu'>
         <Image src={dauphine} alt='logo dauphine' height={50} width={50} />
-      </a>
-      <a rel="noreferrer" target="_blank" className='item' href='https://inria.fr'>
-        <Image src={inria} alt='logo inria' height={50} width={200} />
       </a>
       <a rel="noreferrer" target="_blank" className='item' href='https://mieuxvoter.fr'>
         <Image src={mieuxvoter} alt='logo mieux voter' height={50} width={100} />

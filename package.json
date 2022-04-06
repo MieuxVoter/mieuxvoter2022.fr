@@ -12,9 +12,13 @@
     "firebase": "^9.6.10",
     "fomantic-ui": "^2.8.8",
     "fomantic-ui-sass": "^2.7.80008",
+    "gray-matter": "^4.0.3",
     "next": "12.1.4",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "react-player": "^2.10.0",
+    "react-visibility-sensor": "^5.1.1",
+    "ua-parser-js": "^1.0.2"
   },
   "devDependencies": {
     "eslint": "8.12.0",
