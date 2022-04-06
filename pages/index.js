@@ -89,8 +89,8 @@ const Chrono = (props) => {
           <div className="column">
             <div className=" card-chrono">
               <h4 className='ui header'>01</h4>
-              <h3 className='ui header'>Un système de vote pour révolutionner la démocratie</h3>
-              <p>Au lieu de ne pouvoir choisir qu&apos;un seul candidat, ce qui ne dit rien sur ce que vous pensez des autres ni du candidat lui même, exprimez vous sur tous les candidats sur une échelle de mentions de « Excellent » à « À rejeter ». Le candidat le mieux évalué l&apos;emporte.</p>
+              <h3 className='ui header'>Un système de vote pour réparer la démocratie</h3>
+              <p>Au lieu de ne pouvoir choisir qu&apos;un seul candidat, ce qui ne dit rien sur ce que vous pensez des autres ni du candidat lui même, exprimez vous sur tous les candidats sur une échelle de mentions de « Excellent » à « À rejeter ». Le candidat le mieux évalué par une majorité l&apos;emporte.</p>
             </div>
           </div>
           <div className="column">
@@ -191,7 +191,7 @@ const Versus = () => (
               Je n’ai qu’une seule voix qui ne dit rien du candidat pour qui je vote (vote barrage, vote utile, etc.)
             </li>
             <li>Ce que je pense des candidats pour qui je n’ai pas voté n’est pas pris en compte</li>
-            <li>Un candidat rejeté par une majorité des Français peut quand même devenir Président !</li>
+            <li>Un candidat rejeté par une majorité des Français peut quand même être élu.</li>
           </ul>
         </div>
       </div>
