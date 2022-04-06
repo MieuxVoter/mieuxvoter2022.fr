@@ -167,9 +167,9 @@ const Versus = () => (
     <div className='versus row'>
       <div className="ui two column stackable grid">
         <div className='ui seven wide column'>
-          <h3 className='ui header'>Vote jugement majoritaire</h3>
+          <h3 className='ui header'>Vote au jugement majoritaire</h3>
           <ul>
-            <li> J’évalue tous les candidats sur une échelle mentions de « Excellent » à « À rejeter ».</li>
+            <li> J’évalue tous les candidats sur une échelle de mentions de « Excellent » à « À rejeter ».</li>
             <li>Je peux mettre la même mention à deux candidats.</li>
             <li>Tous mes jugements sont pris en compte dans le classement final des candidats.</li>
             <li>Un candidat rejeté par la majorité des votants ne peut jamais être élu.</li>
