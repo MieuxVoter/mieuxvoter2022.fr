@@ -10,6 +10,9 @@ function MyApp({Component, pageProps}) {
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://mieuxvoter2022.fr/" />
       <meta property="og:image" content="https://mieuxvoter2022.fr/opengraph.jpg" />
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:site" content="@mieux_voter" />
+      <meta property="twitter:creator" content="@pierrelouisg" />
     </Head>
     <UserProvider><Component {...pageProps} /></UserProvider>
 
