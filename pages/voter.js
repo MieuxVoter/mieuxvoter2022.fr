@@ -93,11 +93,11 @@ const Summary = (props) => {
               <div className='stats'>
                 <div className="ui two column grid">
                   <div className='column'>
-                    <div className='redscore'>+{numParticipantsK}K</div>
+                    <div className='redscore'>+{numVotesK}K</div>
                     <div className='legend'>votes</div>
                   </div>
                   <div className='column'>
-                    <div className='redscore'>+{numVotesK}K</div>
+                    <div className='redscore'>+{numParticipantsK}K</div>
                     <div className='legend'>participants</div>
                   </div>
                 </div>
