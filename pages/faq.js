@@ -10,14 +10,6 @@ import {getNumVotes, getNumParticipants} from '../lib/database'
 
 
 export async function getStaticProps() {
-  const matter = require('gray-matter')
-  const {join} = require('path')
-  const {readFileSync} = require('fs')
-  const videoFile = join(process.cwd(), 'content/carousel-videos.yaml')
-  const fileContents = readFileSync(videoFile, 'utf8')
-  let {data: videos, isEmpty} = matter(fileContents);
-  if (isEmpty) {videos = []}
-
   const endingDate = Date.parse(process.env.DATE_ENDING);
   const remain = endingDate - new Date()
   const remainDays = Math.max(0, parseInt(remain / 3600 / 24 / 1000));
@@ -27,7 +19,6 @@ export async function getStaticProps() {
       goalParticipants: process.env.GOAL_PARTICIPANTS,
       numParticipants: await getNumParticipants(),
       numVotes: await getNumVotes(),
-      videos,
     },
     revalidate: 3600,
   }
