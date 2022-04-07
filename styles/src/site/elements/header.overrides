@@ -21,25 +21,35 @@ transform: rotate(45deg);
 transform: rotate(-2.16deg); 
 }
 
-.ui.header .voter {
+/** Logo **/
+.logo {
+cursor: pointer !important;
+}
+.ui.header .logo .voter {
 	color: @blue;
 }
-
-.ui.header .utile {
+.logo .ui.header .utile {
 	color: @red;
 }
-
-.ui.header .dotfr {
-	color: #FFF;
+.logo .ui.header .dotfr {
+color: @white;
   text-stroke: 2px @blue;
   -webkit-text-stroke: 2px @blue;
   font-family: 'DMSans-Bold';
 }
-
-
-.logo {
-cursor: pointer !important;
+.ui.header .logo .voter .inverted {
+	color: @white;
 }
+.logo .inverted .ui.header .dotfr {
+	color: @blue
+  text-stroke: 2px @white;
+  -webkit-text-stroke: 2px @white;
+  font-family: 'DMSans-Bold';
+}
+
+
+/** End Logo **/
+
 
 h3.ui.header {
 font-family: 'Outfit';
