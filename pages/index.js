@@ -241,7 +241,7 @@ const Quotes = () => {
     },
     {
       'author': 'Pierre-Louis Guhur',
-      'quote': "A cause de notre mode de scrutin et de ses stratégies de vote, toute l'attention est portée sur quelques candidats. Les autres candidats, qui sont parfois les seuls à représenter des minorités sont complètement oubliés. Ce n'est pas sans raison que les jeunes se désíntéressent des élections, alors que nous avons plein d&pos;idées et convictions.",
+      'quote': "A cause de notre mode de scrutin et de ses stratégies de vote, toute l'attention est portée sur quelques candidats. Les autres candidats, qui sont parfois les seuls à représenter des minorités sont complètement oubliés. Ce n'est pas sans raison que les jeunes se désíntéressent des élections, alors que nous avons plein d'idées et convictions.",
       'image': pierrelouisGuhur
     },
   ]
