@@ -61,8 +61,6 @@ const MajorityJugdment = ({candidates, grades, onSubmit}) => {
   }
 
   return (<div className='ui container jm'>
-    <h2> Pour présider la France, ayant pris tous les éléments en compte, jugez-vous en conscience
-      que ce(tte) candidat(e) serait…</h2>
     <p>
       Dans le cadre de cette étude, vous êtes amenés à vous prononcer sur les candidats à l&apos;élection présidentielle selon deux modes de scrutin différents : le scrutin
       uninominal majoritaire et le scrutin par jugement majoritaire.
@@ -79,6 +77,8 @@ const MajorityJugdment = ({candidates, grades, onSubmit}) => {
     <div className='row'>
       <div onClick={handleSubmit} className={`fluid ui ${isDone ? '' : 'disabled'} button`}>Je vote</div>
     </div>
+    <h2> Pour présider la France, ayant pris tous les éléments en compte, jugez-vous en conscience
+      que ce(tte) candidat(e) serait…</h2>
     {error && <ErrorToast msg={error} />}
   </div>)
 }
