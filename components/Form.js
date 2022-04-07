@@ -152,7 +152,7 @@ const Form = ({onSubmit}) => {
     <div className='ui container'>
       <Message title={<h3>Collection des informations personnels</h3>}>
         <p>
-          Étant accessible par tout le monde, les votes collectés sur cette plateforme comporte des biais. Nous souhaitons mesurer ces biais en collectant des informations personnels et en les comparant avec les résultats obtenus dans nos sondages réalisés avec Opinion Way.{' '}
+          Étant accessible par tout le monde, les votes collectés sur cette plateforme comportent des biais. Nous souhaitons mesurer ces biais en collectant des informations personnelles et en les comparant avec les résultats obtenus dans nos sondages réalisés avec Opinion Way.{' '}
           <Link href='/faq'><span className='ui lien'>Plus de détails.</span></Link>
         </p>
       </Message>

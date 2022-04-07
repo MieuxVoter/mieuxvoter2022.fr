@@ -2,19 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import facebook from '../public/facebook.svg'
 import twitter from '../public/twitter.svg'
-import rightArrow from '../public/right-arrow.svg'
-import pigArrow from '../public/pig-arrow.svg'
-import researcher from '../public/research.svg'
-import quote from '../public/quote.svg'
-import labo from '../public/labo.svg'
-import idea from '../public/idea.svg'
-import vs from '../public/vs.svg'
 import Title from '../components/Title'
 import Calendar from '../components/Calendar'
-import Counter from '../components/Counter'
 import BigArrowDown from '../components/BigArrowDown'
 import Footer from '../components/Footer'
-import Video from '../components/Video'
 import {getNumVotes, getNumParticipants} from '../lib/database'
 
 
@@ -100,9 +91,7 @@ const Faq = ({videos}) => (
       </h3>
 
       <p>
-        Avec plaisir ! Vous trouverez de nombreuses informations sur le <a href='https://mieuxvoter.fr/' rel='noreferrer' target='_blank'>site de Mieux Voter</a> (dont les <a href='https://mieuxvoter.fr/faq' rel='noreferrer' target='_blank'>questions fréquentes</a>). En particulier, Mieux Voter a produit cette vidéo :
-
-        {videos.map((video, i) => <Video key={i} {...video} />)}
+        Avec plaisir ! Vous trouverez de nombreuses informations sur le <a href='https://mieuxvoter.fr/' rel='noreferrer' target='_blank'>site de Mieux Voter</a> (dont les <a href='https://mieuxvoter.fr/faq' rel='noreferrer' target='_blank'>questions fréquentes</a>). En particulier, Mieux Voter a produit plusieurs vidéos accessibles sur sa chaine <a href='https://www.youtube.com/channel/UCNnvjrbesSdju53YX7ijtyQ' rel='noreferrer' target='_blank'>YouTube</a>.
 
       </p>
       <h3 className='ui header'>
