@@ -7,7 +7,9 @@ import dauphine from '../public/dauphine.svg'
 
 const Footer = () => (
   <div className='footer'>
-    <Title />
+    <div className='inverted'>
+      <Title />
+    </div>
 
     <div className='ui grid tablet computer only'>
       <Link href='/voter' passHref>
@@ -26,8 +28,8 @@ const Footer = () => (
           Questions fréquentes
         </span>
       </Link>
-      <a rel="noreferrer" target="_blank" className='item' href='mailto:voterutile@mieuxvoter.fr'>
-        Presse
+      <a rel="noreferrer" target="_blank" className='item' href='mailto:pierre-louis.guhur@mieuxvoter.fr'>
+        Contact
       </a>
     </div>
     <div className='logos'>
