@@ -96,7 +96,7 @@ const Faq = ({videos}) => (
         Pourquoi demandez-vous des informations personnelles ?
       </h3>
       <p>
-        Ces informations, qui préservent l&apos;anonymat, nous permettront d&apos;interpréter correctement les résultats et en particulier les comparer avec les données d’une série de sondage qu’on a commandé à OpinionWay. En comparant l&apos;effet de variable socio-démographiques au sein d&apos;une même cohorte nous pourront pas ailleurs mieux comprendre des effets tels que l&apos;âge ou la localisation géographique sur le vote.
+        Ces informations, qui préservent l&apos;anonymat, nous permettront d&apos;interpréter correctement les résultats et en particulier de les comparer avec les données d’une série de sondages que nous avons commandés à OpinionWay. En étudiant les résultats au sein d&apos;une même cohorte, nous pourrons par ailleurs mieux comprendre les effets de variables socio-démographiques telles que l&apos;âge ou la localisation géographique sur le vote.
       </p>
 
       <h3 className='ui header'>
@@ -128,7 +128,7 @@ const Faq = ({videos}) => (
       </h3>
 
       <p>
-        En y participant au vote et en partageant avec votre entourage ou sur les réseaux sociaux. Vous pouvez aussi rejoindre les bénévoles de Mieux Voter.
+        En participant au vote et en partageant cette expérience avec votre entourage ou sur les réseaux sociaux. Vous pouvez aussi rejoindre les bénévoles de Mieux Voter.
       </p>
     </div>
   </div>

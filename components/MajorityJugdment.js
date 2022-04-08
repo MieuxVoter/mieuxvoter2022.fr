@@ -68,8 +68,8 @@ const MajorityJugdment = ({candidates, grades, onSubmit}) => {
     <p>
       Le jugement majoritaire est un mode de scrutin où l&apos;électeur doit évaluer tous les
       candidats indépendamment les uns des autres, en leur attribuant une mention sur
-      une échelle qui va de « Excellent » à « A rejeter ». Le candidat le mieux évalué par
-      une majorité remporte l’élection. »
+      une échelle qui va de « Excellent » à « À rejeter ». Le candidat le mieux évalué par
+      une majorité remporte l’élection.
     </p>
     <div className='row'>
       {candidates.map((candidate, i) => (<div key={i} className='column'><Candidate grades={grades} grade={ballot[candidate.name]} {...candidate} onClick={handleClick} /></div>))}

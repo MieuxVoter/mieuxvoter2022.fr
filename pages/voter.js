@@ -83,7 +83,7 @@ const Summary = (props) => {
             <div className='left'>
               <h3 className='ui header'>Un système de vote pour révolutionner la démocratie</h3>
               <p>
-                Exprimez enfin vos opinions sur tous les candidats et indiquons aux futurs décideurs ce que pensent vraiment les Français. Nous pouvons choisir différemment, nous devons changer le mode de scrutin !
+                Exprimez enfin vos opinions sur tous les candidats ! Nous pouvons choisir différemment, nous devons changer le mode de scrutin !
               </p>
             </div>
           </div>
