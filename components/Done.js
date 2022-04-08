@@ -7,10 +7,10 @@ const Done = ({goalParticipants}) => (<div className='ui container done'>
   <p>Nous voulons atteindre {goalParticipants} participants pour mettre en évidence sans ambiguïté les différences entre le scrutin uninominal et le jugement majoritaire.</p>
   <p>Aidez nous à atteindre cet objectif en relayant l&apos;initiative sur les réseaux sociaux :</p>
   <div className='share'>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvoterutile.fr" target="_blank" rel="noreferrer">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmieuxvoter2022.fr" target="_blank" rel="noreferrer">
       <Image className="" src={facebook} width="50px" height="50px" alt="Partager sur Facebook" />
     </a>
-    <a href="http://twitter.com/share?text=Voter%20utile,%20pour%20la%20dernière%20fois%20!&url=https%3A%2F%2Fvoterutile.fr&hashtags=voterutile,presidentielle2050,mieuxvoter" target="_blank" rel="noreferrer">
+    <a href="http://twitter.com/share?text=Sur%20https%3A%2F%2Fmieuxvoter2022.fr%20vous%20pouvez%20enfin%20vous%20exprimer%20pour%20les%20présidentiels%20grâce%20au%20jugement%20majoritaire.%20Soyons%20les%20plus%20nombreux%20à%20participer%20à%20cette%20expérience%20pour%20peser%20dans%20le%20débat%20!&url=https%3A%2F%mieuxvoter2022.fr&hashtags=jugementmajoritaire,mieuxvoter" target="_blank" rel="noreferrer">
       <Image className="" src={twitter} width="50px" height="50px" alt="Partager sur Twitter" />
     </a>
   </div>
