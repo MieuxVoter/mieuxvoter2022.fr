@@ -71,6 +71,9 @@ const MajorityJugdment = ({candidates, grades, onSubmit}) => {
       une échelle qui va de « Excellent » à « À rejeter ». Le candidat le mieux évalué par
       une majorité remporte l’élection.
     </p>
+    <p>
+      En soumettant ces données, vous acceptez qu&apos;elles soient traitées de manière anonyme à des fins scientifiques.
+    </p>
     <h2> Pour présider la France, ayant pris tous les éléments en compte, jugez-vous en conscience
       que ce(tte) candidat(e) serait…</h2>
     <div className='row'>

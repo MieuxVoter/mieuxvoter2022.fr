@@ -27,6 +27,7 @@ const SingleChoice = ({onSubmit}) => (<div className='ui container sm'>
     Dans le cadre de cette étude, vous êtes amenés à vous prononcer anonynement sur les candidats à l&apos;élection présidentielle selon deux modes de scrutin différents : le scrutin
     uninominal majoritaire et le scrutin par jugement majoritaire.
   </p>
+  <p>En indiquant vos intentions de vote, vous acceptez qu&apos;elles soient traitées de manière anonyme à des fins scientifiques.</p>
   <h2>Au premier tour de l&apos;élection présidentielle, pour lequel des candidats suivants avez-vous le plus de chance de voter ?</h2>
   <div className='ui doubling stackable grid three column'>
     {candidates.map((candidate, i) => (<div key={i} className='column'><Candidate onSubmit={onSubmit} {...candidate} /></div>))}
