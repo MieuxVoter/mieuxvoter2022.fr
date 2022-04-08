@@ -43,7 +43,7 @@ const Head = (props) => (
       <a rel="noreferrer" target="_blank" href="https://www.facebook.com/mieuxvoter.fr" className='social'>
         <Image src={facebook} alt='facebook logo' />
       </a>
-      <a rel="noreferrer" target="_blank" href="twitter.com/mieux_voter" className='social'>
+      <a href="https://twitter.com/share?text=Sur%20https%3A%2F%2Fmieuxvoter2022.fr%20vous%20pouvez%20enfin%20vous%20exprimer%20pour%20les%20présidentiels%20grâce%20au%20jugement%20majoritaire.%20Soyons%20les%20plus%20nombreux%20à%20participer%20à%20cette%20expérience%20pour%20peser%20dans%20le%20débat%20!" target="_blank" rel="noreferrer">
         <Image src={twitter} alt='twitter logo' />
       </a>
       <div className='ui button secondary'>
