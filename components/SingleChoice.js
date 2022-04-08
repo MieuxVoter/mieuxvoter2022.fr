@@ -20,8 +20,8 @@ const Candidate = ({name, photo, parti, onSubmit}) => (<div className='ui  candi
 
 const SingleChoice = ({onSubmit}) => (<div className='ui container sm'>
   <p>
-    Le scrutin uninominal majoritaire est le mode de scrutin en vigueur pour l&apos;élection
-    présidentielle de 2022. Il demande à l’électeur de choisir un candidat.
+    Le scrutin uninominal majoritaire est le mode de scrutin actuellement utilisé pour les élections présidentielles françaises.
+    Il demande à l’électeur de choisir un candidat.
   </p>
   <p>
     Dans le cadre de cette étude, vous êtes amenés à vous prononcer anonynement sur les candidats à l&apos;élection présidentielle selon deux modes de scrutin différents : le scrutin

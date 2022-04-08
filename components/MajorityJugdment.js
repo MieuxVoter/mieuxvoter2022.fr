@@ -71,14 +71,14 @@ const MajorityJugdment = ({candidates, grades, onSubmit}) => {
       une échelle qui va de « Excellent » à « À rejeter ». Le candidat le mieux évalué par
       une majorité remporte l’élection.
     </p>
+    <h2> Pour présider la France, ayant pris tous les éléments en compte, jugez-vous en conscience
+      que ce(tte) candidat(e) serait…</h2>
     <div className='row'>
       {candidates.map((candidate, i) => (<div key={i} className='column'><Candidate grades={grades} grade={ballot[candidate.name]} {...candidate} onClick={handleClick} /></div>))}
     </div>
     <div className='row'>
       <div onClick={handleSubmit} className={`fluid ui ${isDone ? '' : 'disabled'} button`}>Je vote</div>
     </div>
-    <h2> Pour présider la France, ayant pris tous les éléments en compte, jugez-vous en conscience
-      que ce(tte) candidat(e) serait…</h2>
     {error && <ErrorToast msg={error} />}
   </div>)
 }
