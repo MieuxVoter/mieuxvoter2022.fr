@@ -26,7 +26,7 @@ export async function getStaticProps() {
       numParticipants: await getNumParticipants(),
       numVotes: await getNumVotes(),
     },
-    revalidate: process.env.REVALIDATE_SECONDS,
+    revalidate: parseInt(process.env.REVALIDATE_SECONDS),
   }
 }
 
