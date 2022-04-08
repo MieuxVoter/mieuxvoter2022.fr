@@ -32,7 +32,7 @@ export async function getStaticProps() {
       numParticipants: await getNumParticipants(),
       numVotes: await getNumVotes(),
     },
-    revalidate: 3600,
+    revalidate: process.env.REVALIDATE_SECONDS,
   }
 }
 
@@ -147,13 +147,21 @@ const Chrono = (props) => {
 }
 
 
-const NumBallots = ({numVotes}) => (
+const NumBallots = ({numVotes, numParticipants}) => (
   <div className='ui container'>
     <div className='ui grid computer only'>
       <div className='num-ballots '>
         <h2 className='ui header subtitle'>Déjà, plus de</h2>
-        <div className='num-votes'>{parseInt(numVotes / 1000)}K</div>
-        <div className='votes'>VOTES</div>
+        <div className='num-votes'>
+          <div className='ui stackable two column grid'>
+            <div className='ui column'>
+              {parseInt(numVotes / 1000)}K</div>
+            <div className='votes'>VOTES</div>
+          </div>
+          <div className='ui column'>
+            {parseInt(numParticipants / 1000)}K</div>
+          <div className='votes'>PARTICIPANTS</div>
+        </div>
         <a href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmieuxvoter2022.fr'>
           <div className='overlap'>
             <div className="ui big primary button">Je partage l&apos;expérience <i className="right arrow icon"></i></div>
@@ -161,7 +169,7 @@ const NumBallots = ({numVotes}) => (
         </a>
       </div>
     </div>
-  </div>
+  </div >
 );
 
 // <li>Un candidat rejeté par la majorité des votants ne peut jamais être élu.</li>
