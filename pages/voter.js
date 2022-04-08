@@ -44,7 +44,7 @@ const Head = (props) => (
       <a rel="noreferrer" target="_blank" href="https://www.facebook.com/mieuxvoter.fr" className='social'>
         <Image src={facebook} alt='facebook logo' />
       </a>
-      <a rel="noreferrer" target="_blank" href="twitter.com/mieux_voter" className='social'>
+      <a rel="noreferrer" target="_blank" href="https://twitter.com/mieux_voter/" className='social'>
         <Image src={twitter} alt='twitter logo' />
       </a>
       <Link className="ui ensavoirplus " href='/'>
