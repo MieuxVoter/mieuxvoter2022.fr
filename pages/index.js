@@ -43,7 +43,7 @@ const Head = (props) => (
       <a rel="noreferrer" target="_blank" href="https://www.facebook.com/mieuxvoter.fr" className='social'>
         <Image src={facebook} alt='facebook logo' />
       </a>
-      <a href="https://twitter.com/share?text=Sur%20https%3A%2F%2Fmieuxvoter2022.fr%20vous%20pouvez%20enfin%20vous%20exprimer%20pour%20les%20présidentiels%20grâce%20au%20jugement%20majoritaire.%20Soyons%20les%20plus%20nombreux%20à%20participer%20à%20cette%20expérience%20pour%20peser%20dans%20le%20débat%20!" target="_blank" rel="noreferrer">
+      <a className="social" href="https://twitter.com/share?text=Sur%20https%3A%2F%2Fmieuxvoter2022.fr%20vous%20pouvez%20enfin%20vous%20exprimer%20pour%20les%20présidentiels%20grâce%20au%20jugement%20majoritaire.%20Soyons%20les%20plus%20nombreux%20à%20participer%20à%20cette%20expérience%20pour%20peser%20dans%20le%20débat%20!" target="_blank" rel="noreferrer">
         <Image src={twitter} alt='twitter logo' />
       </a>
       <div className='ui button secondary'>
@@ -147,28 +147,29 @@ const Chrono = (props) => {
 }
 
 
+// <div className='ui stackable two column grid'>
+//   <div className='ui column'>
+//     {parseInt(numVotes / 1000)}K</div>
+//   <div className='votes'>VOTES</div>
+// </div>
+// <div className='ui column'>
+//   {parseInt(numParticipants / 1000)}K</div>
+// <div className='votes'>PARTICIPANTS</div>
 const NumBallots = ({numVotes, numParticipants}) => (
   <div className='ui container'>
     <div className='ui grid computer only'>
       <div className='num-ballots '>
         <h2 className='ui header subtitle'>Déjà, plus de</h2>
         <div className='num-votes'>
-          <div className='ui stackable two column grid'>
-            <div className='ui column'>
-              {parseInt(numVotes / 1000)}K</div>
-            <div className='votes'>VOTES</div>
-          </div>
-          <div className='ui column'>
-            {parseInt(numParticipants / 1000)}K</div>
-          <div className='votes'>PARTICIPANTS</div>
-        </div>
-        <a href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmieuxvoter2022.fr'>
-          <div className='overlap'>
-            <div className="ui big primary button">Je partage l&apos;expérience <i className="right arrow icon"></i></div>
-          </div>
-        </a>
+          {parseInt(numParticipants / 1000)}K</div>
       </div>
+      <a href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmieuxvoter2022.fr'>
+        <div className='overlap'>
+          <div className="ui big primary button">Je partage l&apos;expérience <i className="right arrow icon"></i></div>
+        </div>
+      </a>
     </div>
+  </div>
   </div >
 );
 
@@ -249,7 +250,7 @@ const Quotes = () => {
     },
     {
       'author': 'Pierre-Louis Guhur',
-      'quote': "A cause de notre mode de scrutin et de ses stratégies de vote, toute l'attention est portée sur quelques candidats. Les autres candidats, qui sont parfois les seuls à représenter des minorités sont complètement oubliés. Ce n'est pas sans raison que les jeunes se désíntéressent des élections, alors que nous avons plein d'idées et convictions.",
+      'quote': "A cause de notre mode de scrutin et de ses stratégies de vote, toute l'attention est portée sur quelques candidats. Les autres candidats, qui sont parfois les seuls à représenter des minorités sont complètement oubliés. Ce n'est pas sans raison que les jeunes se désintéressent des élections, alors que nous avons plein d'idées et convictions.",
       'image': pierrelouisGuhur
     },
   ]
