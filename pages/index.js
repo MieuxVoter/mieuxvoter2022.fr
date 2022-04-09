@@ -164,12 +164,12 @@ const NumBallots = ({numVotes, numParticipants}) => (
         <div className='num-votes'>
           {parseInt(numParticipants / 1000)}K</div>
         <div className='votes'>PARTICIPANTS</div>
+        <a href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmieuxvoter2022.fr'>
+          <div className='overlap'>
+            <div className="ui big primary button">Je partage l&apos;expérience <i className="right arrow icon"></i></div>
+          </div>
+        </a>
       </div>
-      <a href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmieuxvoter2022.fr'>
-        <div className='overlap'>
-          <div className="ui big primary button">Je partage l&apos;expérience <i className="right arrow icon"></i></div>
-        </div>
-      </a>
     </div>
   </div>
 );

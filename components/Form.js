@@ -141,7 +141,7 @@ const Form = ({onSubmit}) => {
       name: 'zipCode',
     },
     {
-      text: 'Optionnel : votre courriel est stocké séparément des autres données et ne sera utilisé que pour vous informer des suites de l&apos;étude.',
+      text: 'Optionnel : votre courriel est stocké séparément des autres données et ne sera utilisé que pour vous informer des suites de l\'étude.',
       type: 'mail',
       name: 'mail',
     },
