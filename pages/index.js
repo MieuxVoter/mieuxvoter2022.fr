@@ -155,6 +155,7 @@ const Chrono = (props) => {
 // <div className='ui column'>
 //   {parseInt(numParticipants / 1000)}K</div>
 // <div className='votes'>PARTICIPANTS</div>
+// </div >
 const NumBallots = ({numVotes, numParticipants}) => (
   <div className='ui container'>
     <div className='ui grid computer only'>
@@ -170,7 +171,6 @@ const NumBallots = ({numVotes, numParticipants}) => (
       </a>
     </div>
   </div>
-  </div >
 );
 
 // <li>Un candidat rejeté par la majorité des votants ne peut jamais être élu.</li>
