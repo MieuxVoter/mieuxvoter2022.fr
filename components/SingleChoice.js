@@ -1,21 +1,37 @@
+import {useState} from 'react'
 import Image from 'next/image'
 import {candidates} from '../lib/constants'
 
-const Voter = ({name, onSubmit}) => {
+const Voter = ({name, confirmation, onConfirm, onSubmit}) => {
   const handleSubmit = (e) => {
     onSubmit && onSubmit({name})
   }
+  const handleConfirm = (e) => {
+    onConfirm && onConfirm({name})
+  }
 
-  return (<div onClick={handleSubmit} className='ui button'>Voter</div>)
+  if (confirmation) {
+    return (<div onClick={handleSubmit} className='ui green button'>Confirmer</div>)
+  } else {
+    return (<div onClick={handleConfirm} className='ui button'>Voter</div>)
+  }
 }
 
-const Candidate = ({name, photo, parti, onSubmit}) => (<div className='ui  candidate'>
-  <h3>{name}</h3>
-  <div className='photo'>
-    <Image src={photo} width={92} height={92} alt={name} />
-  </div>
-  <Voter name={name} onSubmit={onSubmit} />
-</div>)
+const Candidate = ({name, photo, onSubmit}) => {
+  const [confirmed, setConfirmation] = useState(false)
+
+  const handleConfirm = () => {
+    setConfirmation(true);
+  }
+
+  return (<div className={`ui ${confirmed ? "active" : ""} candidate`}>
+    <h3>{name}</h3>
+    <div className='photo'>
+      <Image src={photo} width={92} height={92} alt={name} />
+    </div>
+    <Voter name={name} confirmation={confirmed} onConfirm={handleConfirm} onSubmit={onSubmit} />
+  </div>)
+}
 
 
 const SingleChoice = ({onSubmit}) => (<div className='ui container sm'>

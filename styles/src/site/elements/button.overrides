@@ -91,6 +91,12 @@ width: 100%;
 background-color: @blue;
 color: @white;
 }
+.sm .active .ui.button{
+background-color: @green;
+}
+.sm .active .ui.button:hover{
+background-color: @darkGreen;
+}
 .jm .ui.button:hover {
 background-color: @blue;
 color: @white;

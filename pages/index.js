@@ -18,6 +18,7 @@ import Calendar from '../components/Calendar'
 import Counter from '../components/Counter'
 import BigArrowDown from '../components/BigArrowDown'
 import Footer from '../components/Footer'
+import Modal from '../components/Modal'
 import {getNumVotes, getNumParticipants} from '../lib/database'
 
 
@@ -40,7 +41,7 @@ const Head = (props) => (
   <div className='ui head'>
 
     <div className="ui navigation">
-      <a rel="noreferrer" target="_blank" href="https://www.facebook.com/mieuxvoter.fr" className='social'>
+      <a rel="noreferrer" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmieuxvoter2022.fr" className='social'>
         <Image src={facebook} alt='facebook logo' />
       </a>
       <a className="social" href="https://twitter.com/share?text=Sur%20mieuxvoter2022.fr%20vous%20pouvez%20enfin%20vous%20exprimer%20pour%20les%20présidentielles%20grâce%20au%20jugement%20majoritaire.%20Soyons%20les%20plus%20nombreux%20à%20participer%20à%20cette%20expérience%20pour%20peser%20dans%20le%20débat%20!" target="_blank" rel="noreferrer">
@@ -156,23 +157,54 @@ const Chrono = (props) => {
 //   {parseInt(numParticipants / 1000)}K</div>
 // <div className='votes'>PARTICIPANTS</div>
 // </div >
-const NumBallots = ({numVotes, numParticipants}) => (
-  <div className='ui container'>
-    <div className='ui grid computer only'>
-      <div className='num-ballots '>
-        <h2 className='ui header subtitle'>Déjà, plus de</h2>
-        <div className='num-votes'>
-          {parseInt(numParticipants / 1000)}K</div>
-        <div className='votes'>PARTICIPANTS</div>
-        <a href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmieuxvoter2022.fr'>
-          <div className='overlap'>
-            <div className="ui big primary button">Je partage l&apos;expérience <i className="right arrow icon"></i></div>
+const NumBallots = ({numVotes, numParticipants}) => {
+  const [visible, setVisible] = useState(false);
+  const description = (<>
+    <p>Soyons les plus nombreux à plebisciter une autre manière de voter</p>
+  </>)
+  const actions = (
+    <>
+      <Link href='/voter'>
+        <div className="ui  primary button">Je participe   <i className="right arrow icon"></i></div>
+      </Link>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=mieuxvoter2022.fr" target="_blank" rel="noreferrer">
+        <div className="ui labeled icon button">
+          <i className=" arrow facebook icon"></i>
+          Facebook
+        </div>
+      </a>
+      <a href="https://twitter.com/share?text=Sur%20mieuxvoter2022.fr%20vous%20pouvez%20enfin%20vous%20exprimer%20pour%20les%20présidentielles%20grâce%20au%20jugement%20majoritaire.%20Soyons%20les%20plus%20nombreux%20à%20participer%20à%20cette%20expérience%20pour%20peser%20dans%20le%20débat%20!&url=https%3A%2F%mieuxvoter2022.fr&hashtags=jugementmajoritaire,mieuxvoter" target="_blank" rel="noreferrer">
+        <div className="ui labeled icon button">
+          <i className=" arrow twitter icon"></i>
+          Twitter
+        </div>
+      </a>
+    </>);
+  return (
+    <>
+      <Modal
+        title="Je partage"
+        visible={visible}
+        onClose={() => setVisible(false)}
+        description={description}
+        actions={actions}
+      />
+      < div className='ui container' >
+        <div className='ui grid computer only'>
+          <div className='num-ballots '>
+            <h2 className='ui header subtitle'>Déjà, plus de</h2>
+            <div className='num-votes'>
+              {parseInt(numParticipants / 1000)}K</div>
+            <div className='votes'>PARTICIPANTS</div>
+            <div className='overlap'>
+              <div className="ui big primary button" onClick={() => setVisible(true)}>Je partage l&apos;expérience <i className="right arrow icon"></i></div>
+            </div>
           </div>
-        </a>
-      </div>
-    </div>
-  </div>
-);
+        </div>
+      </div >
+    </>
+  );
+}
 
 // <li>Un candidat rejeté par la majorité des votants ne peut jamais être élu.</li>
 const Versus = () => (

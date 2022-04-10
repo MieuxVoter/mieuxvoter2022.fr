@@ -20,7 +20,9 @@
 @teal             : #1de9b6;
 @yellow           : #FFEB3B;
 
+/*---  Dark Colors  ---*/
 @darkBlue         : #1C079C;
+@darkGreen        : #006400;
 
 /*---  Light Colors  ---*/
 @lightBlack       : #333333;

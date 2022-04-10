@@ -145,7 +145,6 @@ const Form = ({onSubmit}) => {
       type: 'mail',
       name: 'mail',
     },
-
   ]
 
   return (

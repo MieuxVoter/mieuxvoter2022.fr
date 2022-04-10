@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import '../semantic/semantic.min.css'
-import {UserProvider} from "../lib/database"
 
 function MyApp({Component, pageProps}) {
   return <>
@@ -14,7 +13,7 @@ function MyApp({Component, pageProps}) {
       <meta property="twitter:site" content="@mieux_voter" />
       <meta property="twitter:creator" content="@pierrelouisg" />
     </Head>
-    <UserProvider><Component {...pageProps} /></UserProvider>
+    <Component {...pageProps} />
 
   </>
 }

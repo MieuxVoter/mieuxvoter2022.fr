@@ -362,6 +362,9 @@ box-shadow:
              0.3em 0.3em 1em rgba(0,0,0,0.3);
 padding: 15px;
 }
+.sm .active.candidate  {
+border: 1px solid green;
+}
 .sm .candidate .photo {
 width: 92px;
 height: 92px;
