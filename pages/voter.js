@@ -10,6 +10,7 @@ import SingleChoice from '../components/SingleChoice'
 import MajorityJugdment from '../components/MajorityJugdment'
 import Done from '../components/Done'
 import Form from '../components/Form'
+import BigArrowDown from '../components/BigArrowDown'
 import {candidates, grades} from '../lib/constants'
 import {shuffleArray} from '../lib/utils'
 import {useUser, getNumVotes, getNumParticipants} from '../lib/database'
@@ -113,7 +114,7 @@ const Summary = (props) => {
 
 
 export default function Voter(props) {
-  const defaultUser = {'mj': false, 'sm': false, 'step': Math.random() > 0.5 ? 'mj' : 'sm'};
+  const defaultUser = {mj: false, sm: false, step: Math.random() > 0.5 ? 'mj' : 'sm', stepId: 0};
   const {personalData, user, userLoading, setPersonalData, storeBallot, error} = useUser(defaultUser);
   const [loading, setLoading] = useState(true);
   const ballotCandidates = [...candidates]
@@ -143,12 +144,12 @@ export default function Voter(props) {
       setLoading(true);
     } else if (personalData.step == 'mj') {
       const step = personalData.sm ? 'info' : 'sm'
-      setPersonalData(old => ({...old, step}))
-      storeBallot(ballotOrPersonal, personalData.step)
+      setPersonalData(old => ({...old, step, steId: old.stepId + 1}))
+      setPersonalData(old => ({...old, step, steId: old.stepId + 1}))
       setLoading(true);
     } else if (personalData.step == 'sm') {
       const step = personalData.mj ? 'info' : 'mj'
-      setPersonalData(old => ({...old, step}))
+      setPersonalData(old => ({...old, step, steId: old.stepId + 1}))
       storeBallot(ballotOrPersonal, personalData.step)
       setLoading(true);
     }
@@ -171,8 +172,11 @@ export default function Voter(props) {
   return (
     <div className='ui voter'>
       <Head {...props} />
-      <Summary {...props} />
+      <div style={{marginTop: -10em}} className='divider'>
+        <BigArrowDown />
+      </div>
       <Component {...props} onSubmit={handleSubmit} candidates={ballotCandidates} grades={grades} />
+      <Summary {...props} />
       <Footer />
     </div>
   )

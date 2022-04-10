@@ -19,5 +19,5 @@
   },
   "permission": "744",
   "rtl": false,
-  "components": ["reset", "site", "button", "container", "divider",  "header", "icon",  "input", "label", "list", "loader",  "form", "grid", "menu", "message",  "ad",  "item",  "checkbox", "dimmer",  "embed", "modal", "nag",  "transition", "api", "state", "visibility", "text",  "toast"]
+  "components": ["reset", "site", "button", "container", "divider",  "header", "icon",  "input", "label", "list", "loader",  "form", "grid", "menu", "message",  "ad",  "item",  "checkbox", "dimmer",  "embed", "modal", "nag",  "transition", "api", "state", "visibility", "text",  "toast", "segment"]
 }

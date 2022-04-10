@@ -1,3 +1,36 @@
 /*******************************
          Site Overrides
 *******************************/
+.ui.modal > p {
+text-align: left;
+max-width: 100%;
+}
+.ui.modal > .description {
+max-width: 100%;
+}
+.ui.modal > .content {
+max-width: 100%;
+}
+
+.ui.blurring {
+height: 100%;
+width: 100%;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+.ui.participer  { 
+max-width: 742px;
+}
+.ui.participer .top  { 
+padding-top: 3em;
+background-color: @lightBlue;
+}
+.ui.participer .bottom  { 
+padding: 3em;
+background-color: @white;
+}
+.ui.participer .bottom .button  { 
+padding:1em  2em;
+margin: 1em;
+}

@@ -14,6 +14,7 @@ import labo from '../public/labo.svg'
 import idea from '../public/idea.svg'
 import vs from '../public/vs.svg'
 import Title from '../components/Title'
+import Participer from '../components/Participer'
 import Calendar from '../components/Calendar'
 import Counter from '../components/Counter'
 import BigArrowDown from '../components/BigArrowDown'
@@ -61,10 +62,7 @@ const Head = (props) => (
       <b>Notre but :</b> expérimenter massivement ce nouveau système de vote et ouvrir un débat sur une réforme électorale et les nouveaux modes de scrutins.
     </div>
 
-    <Link href='/voter'>
-      <div className="ui big blue primary  button">Participer à l’expérience <i className="right arrow icon"></i></div>
-    </Link>
-
+    <Participer title="Participer à l'expérience" className="big" />
     <Link href='/faq'>
       <div className="ui tertiary blue  button">En savoir plus</div>
     </Link>
@@ -99,9 +97,7 @@ const Chrono = (props) => {
               <h4 className='ui header'>02</h4>
               <h3 className='ui header'>Pesons dans le débat en atteignant {goalParticipantsK}K participants !</h3>
               <Counter progress={props.numParticipants} total={props.goalParticipants} />
-              <Link href='/voter'>
-                <div className="ui big primary fluid button">Je participe à la recherche  <i className="right arrow icon"></i></div>
-              </Link>
+              <Participer className="big fluid" title="Je participe à la recherche" />
 
             </div>
           </div>
@@ -148,14 +144,16 @@ const Chrono = (props) => {
 }
 
 
+const DemarrerModal = () => {
+
+
+}
+
 // <div className='ui stackable two column grid'>
-//   <div className='ui column'>
-//     {parseInt(numVotes / 1000)}K</div>
 //   <div className='votes'>VOTES</div>
 // </div>
 // <div className='ui column'>
 //   {parseInt(numParticipants / 1000)}K</div>
-// <div className='votes'>PARTICIPANTS</div>
 // </div >
 const NumBallots = ({numVotes, numParticipants}) => {
   const [visible, setVisible] = useState(false);
@@ -325,11 +323,9 @@ export default function Home(props) {
       <Versus {...props} />
       <BigArrowDown />
       <Advantages {...props} />
-      <Link href='/voter'>
-        <div className='calltoaction'>
-          <div className="ui big primary button">Participer au vote <i className="right arrow icon"></i></div>
-        </div>
-      </Link>
+      <div className='calltoaction'>
+        <Participer title="Participer à la consultation" className="big" />
+      </div>
       <BigArrowDown />
       <Quotes />
       <Footer />

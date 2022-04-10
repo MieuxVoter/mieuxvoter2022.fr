@@ -1,3 +1,15 @@
 /*******************************
          Site Overrides
 *******************************/
+.ui.blurring {
+
+filter: blur(1.5rem);
+}
+.ui.dimmed {
+display: none;
+}
+
+.ui.dimmed.active {
+display: block;
+}
+

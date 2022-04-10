@@ -448,6 +448,83 @@ margin-bottom: 0 !important;
 }
 }
 
+/** Head **/
+.head {
+background: url('/home.svg') no-repeat center center;
+background-size: auto 770px;
+   display: flex;
+align-items: center;
+flex-direction: column;
+   padding: 15px 0;
+   margin: 0;
+}
+@media only screen and (min-width : (@tabletBreakpoint - 1px)) {
+.head {
+   height: 770px;
+   }
+}
+
+.head .title{
+text-align: center;
+margin-top: 40px;
+display: flex;
+max-width: 620px;
+align-items: center;
+flex-direction: column;
+text-align: center;
+}
+
+.head .navigation {
+width: 100%;
+display: flex;
+justify-content: right;
+padding-right: 2em;
+align-items: center;
+}
+.head h2 {
+max-width: 620px;
+}
+.head .right .menu {
+display: flex;
+  align-items: center;
+  }
+
+.head .social {
+padding-right: 24px;
+}
+
+/** Page Home **/
+.head .content {
+max-width: 467px;
+font-family: DMSans;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 170%;
+
+/* or 27px */
+text-align: center;
+letter-spacing: -0.02em;
+
+color: @grey;
+}
+
+@media only screen and (min-width : (@tabletBreakpoint - 1px)) {
+.head .bottomright {
+position: absolute;
+top: 650px;
+right: 250px;
+}
+}
+
+
+/** Page Voter **/
+.ui.voter .head {
+ height: 457px;
+ background-position: top;
+ margin-bottom: 100px;
+}
+
 /** Page Voter: Done **/
 .voter .done {
 display: flex;
@@ -487,3 +564,5 @@ p {
 font-family: DMSans;
 color: @grey;
 }
+
+
