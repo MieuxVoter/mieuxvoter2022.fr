@@ -145,7 +145,7 @@ export default function Voter(props) {
     } else if (personalData.step == 'mj') {
       const step = personalData.sm ? 'info' : 'sm'
       setPersonalData(old => ({...old, step, steId: old.stepId + 1}))
-      setPersonalData(old => ({...old, step, steId: old.stepId + 1}))
+      storeBallot(ballotOrPersonal, personalData.step)
       setLoading(true);
     } else if (personalData.step == 'sm') {
       const step = personalData.mj ? 'info' : 'mj'
