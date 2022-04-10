@@ -36,20 +36,19 @@ const Candidate = ({name, photo, parti, onClick, grade, grades}) => {
   </div >)
 }
 
-const MajorityJugdment = ({candidates, grades, onSubmit}) => {
+const MajorityJugdment = ({candidates, grades, stepId, onSubmit}) => {
   const [ballot, setBallot] = useState({});
   const [error, setError] = useState();
-  const [isDone, setDone] = useState(false);
+  const [isSubmittable, setSubmittable] = useState(false);
 
   const handleClick = ({name, grade}) => {
-    ballot[name] = grade;
-    setBallot(ballot);
+    setBallot(oldBallot => {oldBallot[name] = grade; return oldBallot;});
     const check = checkMajorityJugdment(ballot, candidates, grades)
-    setDone(check)
+    setSubmittable(check)
   }
 
   const handleSubmit = () => {
-    if (isDone) {
+    if (isSubmittable) {
       onSubmit && onSubmit(ballot);
     } else {
       setError('Veuillez juger tous les candidats.')
@@ -61,26 +60,24 @@ const MajorityJugdment = ({candidates, grades, onSubmit}) => {
   }
 
   return (<div className='ui container jm'>
-    <p>
-      Dans le cadre de cette étude, vous êtes amenés à vous prononcer sur les candidats à l&apos;élection présidentielle selon deux modes de scrutin différents : le scrutin
-      uninominal majoritaire et le scrutin par jugement majoritaire.
-    </p>
+    <h2 className='ui header'>{stepId + 1}/2</h2>
     <p>
       Le jugement majoritaire est un mode de scrutin où l&apos;électeur doit évaluer tous les
       candidats indépendamment les uns des autres, en leur attribuant une mention sur
       une échelle qui va de « Excellent » à « À rejeter ». Le candidat le mieux évalué par
       une majorité remporte l’élection.
     </p>
-    <p>
-      En soumettant ces données, vous acceptez qu&apos;elles soient traitées de manière anonyme à des fins scientifiques.
-    </p>
-    <h2> Pour présider la France, ayant pris tous les éléments en compte, jugez-vous en conscience
-      que ce(tte) candidat(e) serait…</h2>
-    <div className='row'>
+    <h3 className="ui header"> Pour présider la France, ayant pris tous les éléments en compte, jugez-vous en conscience
+      que ce(tte) candidat(e) serait…</h3>
+    <div style={{marginTop: "2em"}} className='row'>
       {candidates.map((candidate, i) => (<div key={i} className='column'><Candidate grades={grades} grade={ballot[candidate.name]} {...candidate} onClick={handleClick} /></div>))}
     </div>
-    <div className='row'>
-      <div onClick={handleSubmit} className={`fluid ui ${isDone ? '' : 'disabled'} button`}>Je vote</div>
+    <div style={{margin: '2em'}} className='row'>
+      <div className='ui centered grid'>
+        <div onClick={handleSubmit} style={{paddingLeft: "4em", paddingRight: "4em"}} className={`ui big ${isSubmittable ? '' : 'disabled'} primary button`}>Je valide mon vote{'   '}
+          <i className="right arrow icon"></i>
+        </div>
+      </div>
     </div>
     {error && <ErrorToast msg={error} />}
   </div>)

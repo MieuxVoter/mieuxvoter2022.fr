@@ -84,19 +84,6 @@ margin: 0px 16px;
 }
 
 /** Scrutin uninominal **/
-.sm .ui.button {
-width: 100%;
-}
-.sm .ui.button:hover {
-background-color: @blue;
-color: @white;
-}
-.sm .active .ui.button{
-background-color: @green;
-}
-.sm .active .ui.button:hover{
-background-color: @darkGreen;
-}
 .jm .ui.button:hover {
 background-color: @blue;
 color: @white;

@@ -91,3 +91,7 @@ text-align: left;
 text-align: left !important;
 }
 
+
+.sm .candidate.active h3 {
+color: @white;
+}

@@ -156,6 +156,7 @@ export default function Voter(props) {
   }
 
   let Component = null
+
   if (personalData.step == 'mj') {
     Component = MajorityJugdment
   }
@@ -172,10 +173,10 @@ export default function Voter(props) {
   return (
     <div className='ui voter'>
       <Head {...props} />
-      <div style={{marginTop: -10em}} className='divider'>
+      <div style={{marginTop: "-7em", marginBottom: "5em"}} className='divider'>
         <BigArrowDown />
       </div>
-      <Component {...props} onSubmit={handleSubmit} candidates={ballotCandidates} grades={grades} />
+      <Component {...personalData} {...props} onSubmit={handleSubmit} candidates={ballotCandidates} grades={grades} />
       <Summary {...props} />
       <Footer />
     </div>
