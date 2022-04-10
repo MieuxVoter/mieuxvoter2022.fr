@@ -1,3 +1,4 @@
+import Image from 'next/image'
 const Modal = ({title, image, imageAlt, description, visible, onClose, actions}) => {
 
   return (
