@@ -49,7 +49,7 @@ const MajorityJugdment = ({candidates, grades, stepId, onSubmit}) => {
 
   const handleSubmit = () => {
     if (isSubmittable) {
-      onSubmit && onSubmit(ballot);
+      onSubmit && onSubmit('mj', ballot);
     } else {
       setError('Veuillez juger tous les candidats.')
       const timer = setTimeout(() => {
@@ -60,7 +60,7 @@ const MajorityJugdment = ({candidates, grades, stepId, onSubmit}) => {
   }
 
   return (<div className='ui container jm'>
-    <h2 className='ui header'>{stepId + 1}/2</h2>
+    <h2 className='ui header'>{stepId}/2</h2>
     <p>
       Le jugement majoritaire est un mode de scrutin où l&apos;électeur doit évaluer tous les
       candidats indépendamment les uns des autres, en leur attribuant une mention sur

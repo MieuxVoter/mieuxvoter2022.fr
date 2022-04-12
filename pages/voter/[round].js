@@ -1,31 +1,52 @@
 import {useState, useEffect} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import facebook from '../public/facebook.svg'
-import twitter from '../public/twitter.svg'
-import Title from '../components/Title'
-import Counter from '../components/Counter'
-import Footer from '../components/Footer'
-import SingleChoice from '../components/SingleChoice'
-import MajorityJugdment from '../components/MajorityJugdment'
-import Done from '../components/Done'
-import Form from '../components/Form'
-import BigArrowDown from '../components/BigArrowDown'
-import {candidates, grades} from '../lib/constants'
-import {shuffleArray} from '../lib/utils'
-import {useUser, getNumVotes, getNumParticipants} from '../lib/database'
+import facebook from '../../public/facebook.svg'
+import twitter from '../../public/twitter.svg'
+import Title from '../../components/Title'
+import Counter from '../../components/Counter'
+import Footer from '../../components/Footer'
+import SingleChoice from '../../components/SingleChoice'
+import MajorityJugdment from '../../components/MajorityJugdment'
+import Done from '../../components/Done'
+import Form from '../../components/Form'
+import BigArrowDown from '../../components/BigArrowDown'
+import {candidates, grades} from '../../lib/constants'
+import {shuffleArray} from '../../lib/utils'
+import {useUser, getNumVotes, getNumParticipants} from '../../lib/database'
 
 
-export async function getStaticProps() {
+export async function getStaticPaths() {
+  return {
+    paths: [
+      {
+        params: {round: 'premier'},
+      },
+      {
+        params: {round: 'second'},
+      },
+    ],
+    fallback: false,
+  }
+}
+
+
+export async function getStaticProps({params}) {
+  const {round} = params;
+
   const endingDate = Date.parse(process.env.DATE_ENDING);
   const remain = endingDate - new Date()
   const remainDays = Math.max(0, parseInt(remain / 3600 / 24 / 1000));
+  const secondRoundCandidates = process.env.SECOND_ROUND_CANDIDATES.split(', ');
+  const roundCandidates = candidates.filter(c => round == 'premier' || secondRoundCandidates.includes(c.name))
   return {
     props: {
       remain: remainDays,
       goalParticipants: process.env.GOAL_PARTICIPANTS,
       numParticipants: await getNumParticipants(),
       numVotes: await getNumVotes(),
+      candidates: roundCandidates,
+      round,
     },
     revalidate: parseInt(process.env.REVALIDATE_SECONDS),
   }
@@ -114,56 +135,97 @@ const Summary = (props) => {
 
 
 export default function Voter(props) {
-  const defaultUser = {mj: false, sm: false, step: Math.random() > 0.5 ? 'mj' : 'sm', stepId: 0};
-  const {personalData, user, userLoading, setPersonalData, storeBallot, error} = useUser(defaultUser);
-  const [loading, setLoading] = useState(true);
-  const ballotCandidates = [...candidates]
-  shuffleArray(ballotCandidates)
+  const defaultUser = {
+    premier: {mj: false, sm: false, step: Math.random() > 0.5 ? 'mj' : 'sm', stepId: 1},
+    second: {mj: false, sm: false, step: Math.random() > 0.5 ? 'mj' : 'sm', stepId: 1},
+    round: props.round,
+    info: false,
+  };
+  const {personalData, user, loading, setLoading, store, setPersonalData} = useUser(defaultUser);
+  const [ballotCandidates, setBallotCandidates] = useState(props.candidates);
+  const {round} = props;
 
 
   useEffect(() => {
-    if (personalData && user && !userLoading) {
-      setLoading(false);
+    if (personalData && user && !loading) {
+      console.log('Voter is ready')
+      setBallotCandidates(
+        old => {
+          const newCandidates = [...old];
+          shuffleArray(newCandidates);
+          return newCandidates;
+        }
+      )
     }
-  }, [personalData, userLoading, user])
+  }, [personalData, loading, user])
+
+
+  const handleSubmit = (step, ballotOrPersonal) => {
+    if (loading) {
+      return
+    }
+    setLoading(true);
+    if (step == 'info') {
+      setPersonalData(old => {
+        const newData = {...old}
+        newData[round].step = 'done';
+        newData[round].stepId = old[round].stepId + 1;
+        newData.info = ballotOrPersonal
+
+        store(newData)
+
+        return newData
+      })
+    } else if (step == 'done') {
+      console.error('Submit on done?')
+    } else {
+      setPersonalData(old => {
+
+        const newData = {...old}
+        console.log('ROUND', round, step)
+        newData[round][step] = ballotOrPersonal
+
+        let nextStep = null;
+        const after = old.info ? 'done' : 'info'
+        const stepId = (old[round].mj != false) + (old[round].sm != false)
+        if (step == 'mj') {
+          nextStep = stepId == 2 ? after : 'sm'
+        } else if (step == 'sm') {
+          nextStep = stepId == 2 ? after : 'mj'
+        } else {
+          throw 'Unknown step'
+        }
+
+        newData[round].step = nextStep;
+        newData[round].stepId = stepId + 1;
+
+        store(newData)
+
+        return newData
+      })
+    }
+  }
 
   if (loading) {
     return (<div className='ui voter'>
       <Head {...props} />
       <Summary {...props} />
       <div className="ui active inverted dimmer">
-        <div className="ui text loader">Loading</div>
+        <div className="ui text loader">Chargement</div>
       </div>
       <Footer />
     </div>)
   }
 
-  const handleSubmit = (ballotOrPersonal) => {
-    if (personalData.step == 'info') {
-      setPersonalData(old => ({...old, ...ballotOrPersonal, step: 'done'}))
-      setLoading(true);
-    } else if (personalData.step == 'mj') {
-      const step = personalData.sm ? 'info' : 'sm'
-      setPersonalData(old => ({...old, step, steId: old.stepId + 1}))
-      storeBallot(ballotOrPersonal, personalData.step)
-      setLoading(true);
-    } else if (personalData.step == 'sm') {
-      const step = personalData.mj ? 'info' : 'mj'
-      setPersonalData(old => ({...old, step, steId: old.stepId + 1}))
-      storeBallot(ballotOrPersonal, personalData.step)
-      setLoading(true);
-    }
-  }
-
   let Component = null
 
-  if (personalData.step == 'mj') {
+  if (personalData[round].step == 'mj') {
     Component = MajorityJugdment
   }
-  else if (personalData.step == 'sm') {
+  else if (personalData[round].step == 'sm') {
     Component = SingleChoice
   }
-  else if (personalData.step == 'info') {
+  else if (personalData[round].step == 'info') {
     Component = Form
   }
   else {
@@ -176,7 +238,7 @@ export default function Voter(props) {
       <div style={{marginTop: "-7em", marginBottom: "5em"}} className='divider'>
         <BigArrowDown />
       </div>
-      <Component {...personalData} {...props} onSubmit={handleSubmit} candidates={ballotCandidates} grades={grades} />
+      <Component {...personalData[round]} {...personalData.info} {...props} onSubmit={handleSubmit} candidates={ballotCandidates} grades={grades} />
       <Summary {...props} />
       <Footer />
     </div>

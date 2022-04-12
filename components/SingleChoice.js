@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import Image from 'next/image'
-import {candidates} from '../lib/constants'
 
 
 const Candidate = ({name, photo, active, onClick}) => {
@@ -13,7 +12,7 @@ const Candidate = ({name, photo, active, onClick}) => {
 }
 
 
-const SingleChoice = ({stepId, onSubmit}) => {
+const SingleChoice = ({stepId, candidates, onSubmit}) => {
   const [ballot, setBallot] = useState({});
   const [error, setError] = useState();
   const [isSubmittable, setSubmittable] = useState(false);
@@ -25,7 +24,7 @@ const SingleChoice = ({stepId, onSubmit}) => {
 
   const handleSubmit = () => {
     if (isSubmittable) {
-      onSubmit && onSubmit({name: ballot});
+      onSubmit && onSubmit('sm', {name: ballot});
     } else {
       setError('Veuillez juger tous les candidats.')
       const timer = setTimeout(() => {
@@ -36,12 +35,12 @@ const SingleChoice = ({stepId, onSubmit}) => {
   }
 
   return (<div className='ui container sm'>
-    <h2 className='ui header'>{stepId + 1}/2</h2>
+    <h2 className='ui header'>{stepId}/2</h2>
     <p>
       Le scrutin uninominal majoritaire est le mode de scrutin actuellement utilisé pour les élections présidentielles françaises. Il demande à l’électeur de choisir un candidat.
     </p>
-    <h3 className='ui header'>Au premier tour de l&apos;élection présidentielle, pour lequel des candidats suivants avez-vous le plus de chance de voter ?</h3>
-    <div style={{marginTop: "2em"}} className='ui doubling stackable grid three column'>
+    <h3 className='ui header'>Pour lequel des candidats suivants avez-vous le plus de chance de voter ?</h3>
+    <div style={{marginTop: "2em"}} className={`ui doubling stackable grid ${candidates.length == 2 ? 'two' : 'three'} column`}>
       {candidates.map((candidate, i) => (<div key={i} className='column'><Candidate active={candidate.name == ballot} onClick={handleClick} {...candidate} /></div>))}
     </div>
     <div style={{margin: '2em'}} className='row'>

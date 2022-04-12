@@ -29,11 +29,11 @@ const Participer = ({title, className}) => {
             <h2 className="ui header">Cadre de l&apos;étude</h2>
             <p>
               Vous êtes amené·e à vous prononcer anonynement sur les candidats à l&apos;élection présidentielle selon deux modes de scrutin différents : le scrutin
-              uninominal majoritaire et le scrutin par jugement majoritaire.
+              uninominal majoritaire et le scrutin par jugement majoritaire au second tour.
             </p>
             <p>En indiquant vos intentions de vote, vous acceptez qu&apos;elles soient traitées de manière anonyme à des fins scientifiques.</p>
-            <Link href='/voter'>
-              <div className="ui big primary button">J&apos;ai compris   <i className="right arrow icon"></i></div>
+            <Link href='/voter/second'>
+              <div className="ui big primary button">J&apos;ai compris  <i className="right arrow icon"></i></div>
             </Link>
           </div>
 

@@ -76,7 +76,7 @@ const Form = ({onSubmit}) => {
       return
     }
 
-    onSubmit({
+    onSubmit('info', {
       mail: data.mail,
       age: data.age,
       gender: data.gender,
