@@ -567,4 +567,11 @@ font-family: DMSans;
 color: @grey;
 }
 
-
+/** Page resultats **/
+.results .head {
+height: 500px;
+background-size: auto 500px;
+}
+.results .head .button {
+margin-top: 2em !important;
+}

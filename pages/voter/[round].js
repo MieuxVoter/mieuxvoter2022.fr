@@ -141,14 +141,13 @@ export default function Voter(props) {
     round: props.round,
     info: false,
   };
-  const {personalData, user, loading, setLoading, store, setPersonalData} = useUser(defaultUser);
+  const {personalData, user, loading, setLoading, updateCounterUsers, updateCounterVotes, store, setPersonalData} = useUser(defaultUser);
   const [ballotCandidates, setBallotCandidates] = useState(props.candidates);
   const {round} = props;
 
 
   useEffect(() => {
     if (personalData && user && !loading) {
-      console.log('Voter is ready')
       setBallotCandidates(
         old => {
           const newCandidates = [...old];
@@ -164,15 +163,18 @@ export default function Voter(props) {
     if (loading) {
       return
     }
-    setLoading(true);
+    setLoading(true)
     if (step == 'info') {
       setPersonalData(old => {
+        setLoading(false)
         const newData = {...old}
         newData[round].step = 'done';
         newData[round].stepId = old[round].stepId + 1;
+        const mail = ballotOrPersonal.mail
+        delete ballotOrPersonal.mail
         newData.info = ballotOrPersonal
 
-        store(newData)
+        store(newData, mail)
 
         return newData
       })
@@ -180,14 +182,26 @@ export default function Voter(props) {
       console.error('Submit on done?')
     } else {
       setPersonalData(old => {
+        setLoading(false)
+
+        // For an obscure reason, the setter is executed twice.
+        if (old[round][step] !== false) {
+          return old
+        }
 
         const newData = {...old}
-        console.log('ROUND', round, step)
         newData[round][step] = ballotOrPersonal
 
         let nextStep = null;
         const after = old.info ? 'done' : 'info'
-        const stepId = (old[round].mj != false) + (old[round].sm != false)
+        const stepId = (old[round].mj !== false) + (old[round].sm !== false)
+        const newUser = (old['second'].mj === false) && (old['second'].sm === false) && (old['premier'].mj === false) && (old['premier'].sm === false)
+        if (newUser) {
+          updateCounterUsers()
+        }
+
+        updateCounterVotes(step == 'mj' ? ballotCandidates.length : 1)
+
         if (step == 'mj') {
           nextStep = stepId == 2 ? after : 'sm'
         } else if (step == 'sm') {

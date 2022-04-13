@@ -62,7 +62,7 @@ const Head = (props) => (
       <b>Notre but :</b> expérimenter massivement ce nouveau système de vote et ouvrir un débat sur une réforme électorale et les nouveaux modes de scrutins.
     </div>
 
-    <Participer title="Participer à l'expérience" className="big" />
+    <Participer title="Participer au second tour" className="big" />
     <Link href='/faq'>
       <div className="ui tertiary blue  button">En savoir plus</div>
     </Link>
