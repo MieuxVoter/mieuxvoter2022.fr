@@ -141,7 +141,7 @@ export default function Voter(props) {
     round: props.round,
     info: false,
   };
-  const {personalData, user, loading, setLoading, updateCounterUsers, updateCounterVotes, store, setPersonalData} = useUser(defaultUser);
+  const {personalData, user, loading, setLoading, updateCounterUsers, updateCounterVotes, store, setPersonalData, logOut} = useUser(defaultUser);
   const [ballotCandidates, setBallotCandidates] = useState(props.candidates);
   const {round} = props;
 
@@ -189,16 +189,18 @@ export default function Voter(props) {
           return old
         }
 
+        const newUser = (old['second'].mj === false) && (old['second'].sm === false) && (old['premier'].mj === false) && (old['premier'].sm === false)
+        console.log('new user', newUser, old)
+        if (newUser) {
+          updateCounterUsers()
+        }
+
         const newData = {...old}
         newData[round][step] = ballotOrPersonal
 
         let nextStep = null;
         const after = old.info ? 'done' : 'info'
         const stepId = (old[round].mj !== false) + (old[round].sm !== false)
-        const newUser = (old['second'].mj === false) && (old['second'].sm === false) && (old['premier'].mj === false) && (old['premier'].sm === false)
-        if (newUser) {
-          updateCounterUsers()
-        }
 
         updateCounterVotes(step == 'mj' ? ballotCandidates.length : 1)
 
@@ -246,6 +248,7 @@ export default function Voter(props) {
     Component = Done
   }
 
+  // <div className='ui button' onClick={logOut}>Se déconnecter</div>
   return (
     <div className='ui voter'>
       <Head {...props} />
