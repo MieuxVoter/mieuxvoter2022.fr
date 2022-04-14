@@ -95,3 +95,12 @@ text-align: left !important;
 .sm .candidate.active h3 {
 color: @white;
 }
+
+h6.ui.header {
+font-family: DMSans;
+font-style: normal;
+font-weight: 700;
+font-size: 1em;
+letter-spacing: -0.02em;
+color: @darkGrey;
+}

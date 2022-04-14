@@ -1,3 +1,239 @@
 /*******************************
     User Variable Overrides
 *******************************/
+.ui.card {
+background: @white;
+box-shadow:
+	0px 8px 24px rgba(0, 0, 0, 0.2),
+	0px 2px 1px rgba(0, 0, 0, 0.05);
+border-radius: 2px;
+}
+.mj > .ui.card {
+margin-bottom: 1em;
+}
+.mj .ui.card .content {
+display: flex;
+flex-direction: row;
+}
+.mj .ui.card .content .header {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 30px;
+margin-right: 30px;
+}
+.mj .ui.card .content .header .image {
+width: 92px;
+height: 92px;
+}
+.mj .ui.card .title {
+display: flex;
+justify-content: space-between;
+}
+.mj .ui.card .details {
+width: 100%;
+flex-direction: column;
+justify-content: center;
+}
+
+.sm .ui.card {
+display: flex;
+flex-direction: column;
+}
+
+/** Majority Jugement Result **/
+.mj .result {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  margin-right: 0.1%;
+  display: inline-block;
+  white-space: nowrap;
+  position: relative;
+  padding: 0px !important;
+}
+.mj .darkgreen { /*excellent */
+  background-color: #007C33 !important;
+}
+.mj .darkgreen .outgauge { /*excellent */
+  color: #007C33 !important;
+}
+.mj .green { /*tres bien */
+  background-color: #00c24f !important;
+}
+.mj .green .outgauge { /*tres bien */
+  color: #00c24f !important;
+}
+.mj .olive { /* Bien */
+  background-color: #7cd63a !important;
+}
+.mj .olive .outgauge { /* Bien */
+  color: #7cd63a !important;
+}
+.mj .yellow { /* Passable */
+  background-color: #fec200 !important;
+}
+.mj .yellow .outgauge { /* Passable */
+  color: #fec200 !important;
+}
+.mj .orange { /* Mauvais */
+  background-color: #fc7700 !important;
+}
+.mj .orange .outgauge {
+	color: #fc7700 !important;
+}
+.mj .red { /* À rejeter */
+  background-color: rgb(178, 6, 22) !important;
+}
+.mj .red .outgauge {
+	color: rgb(178, 6, 22) !important;
+}
+.mj .outgauge {
+	position: absolute;
+	display: block;
+}
+.mj .outgauge.below {
+	top: 40px;
+}
+.mj .outgauge.above {
+	top: -20px;
+}
+.mj .badge {
+	padding: 6px;
+	color: white;
+	font-size: 0.8em;
+	margin: 4px;
+	border-radius: 6px;
+}
+.mj .median.label {
+	display: flex;
+	align-items: stretch;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.mj .median.dash {
+	position: relative;
+	right: 50%;
+	height: 60px;
+	bottom: 50px;
+	border-right: 1px dashed black;
+}
+.mj .block-container {
+	max-width: 1000px!important;
+}
+.mj .majoritygrade {
+	border: 3px solid rgb(0, 0, 196);
+}
+/* .mj .majoritygrade span {
+	padding-left: 20px;
+}*/
+.mj .bar-row {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  height: 40px;
+}
+
+.mj .bar-row .opponents, .proponents, .majoritygrade {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+//  margin-right: 5px;
+}
+.mj .proponents.majority {
+  border: 3px solid #005021;
+}
+.mj .opponents.majority {
+  border: 3px solid #661800;
+}
+/* .mj .majority .result {
+}*/
+.mj {
+  font-size: 14px;
+}
+
+.mj .bar-row .bar {
+  display: flex;
+  flex: 0 0;
+  justify-content: center;
+  align-items: center;
+  min-width: 5px;
+}
+
+.mj .bar.brown {
+  background-color: #a5673f;
+  color: @white;
+}
+
+
+/* SingleChoiceResult */
+.sm .ui.card .content {
+display: flex;
+flex-direction: column;
+}
+.ui.sm > .card > .content > .header {
+display: flex;
+justify-content: center;
+align-items: center;
+align-content: center;
+}
+.sm .ui.image {
+flex-basis: 92px;
+}
+.sm .ui.details {
+height: 80px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+.sm .bar-row  {
+height: 8px;
+background-color: #F5F5F5;
+border-radius: 34px;
+ display: flex;
+}
+.sm .bar-row > div {
+ background-color: @blue;
+border-radius: 34px;
+ }
+ .sm .stats {
+display: flex;
+justify-content: space-between;
+align-items: flex-end;
+ }
+ .sm .stats > h3 {
+ margin-bottom: 0px;
+ }
+ .sm .stats > h6 {
+ margin-top: 0px;
+ }
+ .sm .rank {
+ position: absolute;
+width: 24px;
+height: 24px;
+left: calc(50% + 24px/2);
+top: calc(50% - 24px/2);
+
+font-family: 'Outfit';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 24px;
+
+/* identical to box height, or 171% */
+text-align: center;
+letter-spacing: -0.02em;
+
+color: @blue;
+background-color: @white;
+border: 2px solid @white;
+border-radius: 40px;
+}
+.sm .rank.active {
+color: @white;
+background-color: @blue;
+}

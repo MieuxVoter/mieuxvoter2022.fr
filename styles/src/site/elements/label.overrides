@@ -1,3 +1,7 @@
 /*******************************
          Site Overrides
 *******************************/
+.ui.label {
+font-family: DMSans;
+height: fit-content;
+}

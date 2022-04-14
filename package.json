@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "csv-parser": "^3.0.0",
     "firebase": "^9.6.10",
     "fomantic-ui": "^2.8.8",
     "fomantic-ui-sass": "^2.7.80008",

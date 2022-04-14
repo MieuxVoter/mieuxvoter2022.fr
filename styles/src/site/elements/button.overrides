@@ -110,3 +110,25 @@ margin-top: 30px;
 display: flex;
 align-items: center;
 }
+
+/* Selector component */
+.ui.selector {
+background: @lightGrey;
+border-radius: 3px;
+padding: 3px;
+}
+.ui.selector .ui.button {
+color: @grey;
+}
+.ui.button.rounded {
+border-radius: 3px;
+}
+
+.ui.selector .ui.button:hover {
+background-color: @blue;
+color: @white;
+}
+.ui.selector .ui.button.active {
+background-color: @white;
+color: @blue;
+}

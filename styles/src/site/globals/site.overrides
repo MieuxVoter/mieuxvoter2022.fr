@@ -456,6 +456,7 @@ background: url('/home.svg') no-repeat center center;
 background-size: auto 770px;
    display: flex;
 align-items: center;
+justify-content: space-around;
 flex-direction: column;
    padding: 15px 0;
    margin: 0;
@@ -570,8 +571,19 @@ color: @grey;
 /** Page resultats **/
 .results .head {
 height: 500px;
-background-size: auto 500px;
+background-size: auto 700px;
+background-position: center 0;
 }
-.results .head .button {
-margin-top: 2em !important;
+
+
+.ui.center {
+display: flex;
+width: 100%;
+justify-content: center;
 }
+.ui.space {
+height: 5em;
+}
+
+
+
