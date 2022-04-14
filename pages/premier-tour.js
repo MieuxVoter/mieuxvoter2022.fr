@@ -112,9 +112,8 @@ const Results = ({results, mode, numVotes}) => {
         className={`ui doubling stackable grid ${results.length == 2 ? 'two' : 'three'} column`}
       >
         {results[mode].map(([candidate, grade], i) => (
-          <div className='column'>
+          <div key={i} className='column' >
             <SingleChoiceResult
-              key={i}
               rank={i + 1}
               name={candidate.name}
               image={candidate.photo}
