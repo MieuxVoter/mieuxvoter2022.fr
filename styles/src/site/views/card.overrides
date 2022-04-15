@@ -35,6 +35,21 @@ width: 100%;
 flex-direction: column;
 justify-content: center;
 }
+@media only screen and (max-width : @tabletBreakpoint) {
+.mj .ui.card .content  {
+flex-direction: column;
+}
+.mj .ui.title {
+margin-top: 5px;
+margin-bottom: 15px;
+}
+.mj .ui.title > .ui.header {
+justify-content: left;
+font-size: 1.5em;
+margin: 0px;
+}
+}
+
 
 .sm .ui.card {
 display: flex;
