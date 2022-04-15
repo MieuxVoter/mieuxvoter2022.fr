@@ -4,11 +4,7 @@ import Link from 'next/link'
 import facebook from '../public/facebook.svg'
 import twitter from '../public/twitter.svg'
 import Title from '../components/Title'
-import Calendar from '../components/Calendar'
-import BigArrowDown from '../components/BigArrowDown'
 import Footer from '../components/Footer'
-import {getNumVotes, getNumParticipants} from '../lib/database'
-import MajorityJugdment from '../components/MajorityJugdment'
 import MajorityJugdmentResult from '../components/MajorityJudgmentResult'
 import SingleChoiceResult from '../components/SingleChoiceResult'
 import {candidates} from '../lib/constants'
@@ -130,6 +126,13 @@ export default function Page(props) {
     <div className='results'>
       <Head {...props} mode={mode} setMode={setMode} />
       <div className='ui container'>
+        <div className='ui space'>
+        </div>
+        <div className="center">
+          <a href="https://mieuxvoter2022.fr/rapport-premier-tour.pdf" target="_blank" rel="noreferrer">
+            <div className="ui primary button">Lire le rapport complet  <i className="right arrow icon"></i></div>
+          </a>
+        </div>
         <div className='ui space'>
         </div>
         <Results {...props} mode={mode} />

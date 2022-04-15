@@ -587,3 +587,8 @@ height: 5em;
 
 
 
+.center {
+display: flex;
+justify-content: center;
+align-items: center;
+}
