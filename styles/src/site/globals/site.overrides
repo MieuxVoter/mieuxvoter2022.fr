@@ -149,7 +149,7 @@ height: 56px;
 display: flex;
 }
 .counter .stat {
-width: 400px;
+width: 450px;
 display: flex;
 align-items: center;
 }

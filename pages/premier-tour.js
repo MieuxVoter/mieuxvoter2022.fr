@@ -50,12 +50,10 @@ export async function getStaticProps() {
 
   return {
     props: {
-      numParticipants: await getNumParticipants(),
       numVotes: 27993,
       candidates: candidates,
       results: results,
     },
-    revalidate: parseInt(process.env.REVALIDATE_SECONDS),
   }
 }
 
