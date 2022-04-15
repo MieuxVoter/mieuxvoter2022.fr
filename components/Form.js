@@ -81,6 +81,7 @@ const Form = ({onSubmit}) => {
       age: data.age,
       gender: data.gender,
       zipCode: data.zipCode,
+      appreciation: data.appreciation,
       csp: data.csp,
       terms: true,
     })
