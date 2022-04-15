@@ -38,14 +38,13 @@ export async function getStaticProps({params}) {
   const remain = endingDate - new Date()
   const remainDays = Math.max(0, parseInt(remain / 3600 / 24 / 1000));
   const secondRoundCandidates = process.env.SECOND_ROUND_CANDIDATES.split(', ');
-  const roundCandidates = candidates.filter(c => round == 'premier' || secondRoundCandidates.includes(c.name))
   return {
     props: {
       remain: remainDays,
       goalParticipants: process.env.GOAL_PARTICIPANTS,
       numParticipants: await getNumParticipants(),
       numVotes: await getNumVotes(),
-      candidates: roundCandidates,
+      secondRoundCandidates: secondRoundCandidates,
       round,
     },
     revalidate: parseInt(process.env.REVALIDATE_SECONDS),
@@ -141,8 +140,9 @@ export default function Voter(props) {
     round: props.round,
     info: false,
   };
-  const {personalData, user, loading, setLoading, updateCounterUsers, updateCounterVotes, store, setPersonalData, logOut} = useUser(defaultUser);
-  const [ballotCandidates, setBallotCandidates] = useState(props.candidates);
+  const {personalData, user, loading, setLoading, updateCounterUsers, updateCounterVotes, store, setPersonalData} = useUser(defaultUser);
+  const roundCandidates = candidates.filter(c => props.round == 'premier' || props.secondRoundCandidates.includes(c.name))
+  const [ballotCandidates, setBallotCandidates] = useState(roundCandidates);
   const {round} = props;
 
 
@@ -156,8 +156,12 @@ export default function Voter(props) {
         }
       )
     }
-  }, [personalData, loading, user])
+  }, [personalData, user, loading])
 
+  useEffect(() => {
+    setBallotCandidates(candidates.filter(c => props.round == 'premier' || props.secondRoundCandidates.includes(c.name)))
+  }, [round]
+  )
 
   const handleSubmit = (step, ballotOrPersonal) => {
     if (loading) {
@@ -190,7 +194,6 @@ export default function Voter(props) {
         }
 
         const newUser = (old['second'].mj === false) && (old['second'].sm === false) && (old['premier'].mj === false) && (old['premier'].sm === false)
-        console.log('new user', newUser, old)
         if (newUser) {
           updateCounterUsers()
         }
