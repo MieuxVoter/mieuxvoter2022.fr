@@ -453,7 +453,7 @@ margin-bottom: 0 !important;
 /** Head **/
 .head {
 background: url('/home.svg') no-repeat center center;
-background-size: auto 770px;
+background-size: auto 100vh;
    display: flex;
 align-items: center;
 justify-content: space-around;
@@ -463,7 +463,7 @@ flex-direction: column;
 }
 @media only screen and (min-width : (@tabletBreakpoint - 1px)) {
 .head {
-   height: 770px;
+   height: 100vh;
    }
 }
 
@@ -498,7 +498,7 @@ padding-right: 24px;
 
 /** Page Home **/
 .head .content {
-max-width: 467px;
+max-width: 537px;
 font-family: DMSans;
 font-style: normal;
 font-weight: 500;
@@ -516,7 +516,7 @@ color: @grey;
 .head .bottomright {
 position: absolute;
 top: 650px;
-right: 250px;
+right: 100px;
 }
 }
 

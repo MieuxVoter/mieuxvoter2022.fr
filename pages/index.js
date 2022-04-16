@@ -51,6 +51,9 @@ const Head = (props) => (
       <div className='ui button secondary'>
         <Link className="ui ensavoirplus" href='/faq'>Questions fréquentes</Link>
       </div>
+      <div className='ui button secondary'>
+        <Link className="ui ensavoirplus" href='/premier-tour'>Résultats</Link>
+      </div>
     </div>
 
     <Title />
@@ -63,9 +66,14 @@ const Head = (props) => (
     </div>
 
     <Participer title="Participer au second tour" className="big" />
-    <Link href='/faq'>
-      <div className="ui tertiary blue  button">En savoir plus</div>
-    </Link>
+    <div className="ui links">
+      <Link href='/faq'>
+        <div className="ui tertiary blue  button">En savoir plus</div>
+      </Link>
+      <Link href='/premier-tour'>
+        <div className="ui tertiary blue  button">Résultats du premier tour</div>
+      </Link>
+    </div>
 
     <div className='bottomright'>
       <Calendar remain={props.remain} />
