@@ -138,10 +138,13 @@ export default function Page(props) {
           <a href="https://mieuxvoter2022.fr/rapport-premier-tour.pdf" target="_blank" rel="noreferrer">
             <div className="ui big primary button">Lire le rapport complet  <i className="right arrow icon"></i></div>
           </a>
-          <p>
-            Cette consultation n’avait pas pour ambition de former un échantillon représentatif de l’électorat français et de fait, les orientations politiques de gauche sont sur-représentées dans la cohorte de participants. L&apos;analyse des résultats est cependant très instructive (voir notre rapport).
-          </p>
+
         </div>
+        <div className='ui space'>
+        </div>
+        <p>
+          Cette consultation n’avait pas pour ambition de former un échantillon représentatif de l’électorat français et de fait, les orientations politiques de gauche sont sur-représentées dans la cohorte de participants. L&apos;analyse des résultats est cependant très instructive (voir notre rapport).
+        </p>
         <div className='ui space'>
         </div>
         <Results {...props} mode={mode} />

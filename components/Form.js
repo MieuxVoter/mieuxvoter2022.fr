@@ -82,6 +82,7 @@ const Form = ({onSubmit}) => {
       gender: data.gender,
       zipCode: data.zipCode,
       appreciation: data.appreciation,
+      blankJM: data.blankJM,
       csp: data.csp,
       terms: true,
     })
@@ -135,6 +136,12 @@ const Form = ({onSubmit}) => {
       type: 'radio',
       options: ['Tout-à-fait favorable', 'Plutôt favorable', 'Plutôt défavorable', 'Tout-à-fait défavorable'],
       name: 'appreciation',
+    },
+    {
+      text: 'Si le second tour de l’élection présidentielle se déroulait au jugement majoritaire, iriez-vous voter ?',
+      type: 'radio',
+      options: ['Oui certainement', 'Oui probablement', 'Non probablement pas', 'Non certainement pas'],
+      name: 'blankJM',
     },
     {
       text: 'Quel est votre code postal',
