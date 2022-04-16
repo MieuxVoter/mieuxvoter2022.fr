@@ -96,7 +96,13 @@ const Head = (props) => (
 const Results = ({results, mode, numVotes}) => {
   if (mode == "mj") {
     return (<> {results[mode].map(([candidate, grades], i) => (
-      <MajorityJugdmentResult key={i} name={candidate.name} image={candidate.photo} grades={grades} />))} </>
+      <MajorityJugdmentResult
+        key={i}
+        name={candidate.name}
+        rank={i + 1}
+        image={candidate.photo}
+        grades={grades}
+      />))} </>
 
     )
   } else {
@@ -130,7 +136,7 @@ export default function Page(props) {
         </div>
         <div className="center">
           <a href="https://mieuxvoter2022.fr/rapport-premier-tour.pdf" target="_blank" rel="noreferrer">
-            <div className="ui primary button">Lire le rapport complet  <i className="right arrow icon"></i></div>
+            <div className="ui big primary button">Lire le rapport complet  <i className="right arrow icon"></i></div>
           </a>
         </div>
         <div className='ui space'>

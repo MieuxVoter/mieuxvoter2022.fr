@@ -80,7 +80,7 @@ const MajorityGrade = ({grades, majorityGrade, threshold}) => (<>
     )
   } </>)
 
-const Result = ({name, image, grades}) => {
+const Result = ({name, image, grades, rank}) => {
   /**
    * name: candidate name
    * grades: list of grades ordered from best to worst.
@@ -123,6 +123,9 @@ const Result = ({name, image, grades}) => {
           <div className='ui header'>
             <div className='ui image'>
               <Image src={image} alt={name} />
+              <div className={`rank ${rank == 1 ? 'active' : ''}`}>
+                {rank}
+              </div>
             </div>
           </div>
 

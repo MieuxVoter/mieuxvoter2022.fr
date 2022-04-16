@@ -226,12 +226,9 @@ align-items: flex-end;
  .sm .stats > h6 {
  margin-top: 0px;
  }
- .sm .rank {
- position: absolute;
+ .ui.header .rank {
 width: 24px;
 height: 24px;
-left: calc(50% + 24px/2);
-top: calc(50% - 24px/2);
 
 font-family: 'Outfit';
 font-style: normal;
@@ -248,7 +245,17 @@ background-color: @white;
 border: 2px solid @white;
 border-radius: 40px;
 }
-.sm .rank.active {
+.ui.card .rank.active {
 color: @white;
 background-color: @blue;
+}
+.sm .rank {
+ position: absolute;
+left: calc(50% + 24px/2);
+top: calc(50% - 24px/2);
+}
+.mj .rank {
+ position: relative;
+left: 63px;
+top: -24px;
 }
