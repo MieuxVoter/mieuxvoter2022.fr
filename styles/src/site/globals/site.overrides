@@ -453,6 +453,7 @@ margin-bottom: 0 !important;
 /** Head **/
 .head {
 background: url('/home.svg') no-repeat center center;
+background-position-x: 60%;
 background-size: auto 100vh;
    display: flex;
 align-items: center;
@@ -515,7 +516,7 @@ color: @grey;
 @media only screen and (min-width : (@tabletBreakpoint - 1px)) {
 .head .bottomright {
 position: absolute;
-top: 650px;
+top: 600px;
 right: 100px;
 }
 }
