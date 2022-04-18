@@ -275,22 +275,25 @@ const Quotes = () => {
     {
       'author': 'Rida Laraki',
       'quote': 'Le scrutin majoritaire fait l’unanimité des chercheurs contre lui depuis la révolution française et les travaux fondateurs de Condorcet et de Borda.  Suite à l’accident démocratique de 2002, le jugement majoritaire a été conçu avec mon collègue Michel Balinski pour réparer les déboires du scrutin majoritaire et améliorer profondément les règles du jeu démocratique.',
-      'image': ridaLaraki
+      'image': ridaLaraki,
+      'link': 'https://twitter.com/LarakiRida',
     },
     {
       'author': 'David Chavalarias',
       'quote': 'Arrêtons de voter pour le moins pire, évaluons la capacité des candidats à porter les bonnes idées. Le jugement majoritaire permet enfin de voter par conviction en redonnant sens au vote.',
-      'image': davidChavalarias
+      'image': davidChavalarias,
+      'link': 'https://twitter.com/chavalarias',
     },
-    {
-      'author': 'Michel Balinski',
-      'quote': 'Les démocraties sont à la peine en France, en Europe, aux États-Unis. Les électeurs protestent. L’une des causes principales de ce malaise provient du système électoral. Il empêche les électeurs de s’exprimer et porte souvent au pouvoir des candidats non voulus. En France, des primaires – à droite, à gauche ou citoyennes – cherchent à éviter le pire […]. Des primaires avec le scrutin majoritaire sont une fausse piste. Remplacer le mode de scrutin actuel par le jugement majoritaire s’impose.',
-      'image': michelBalinski
-    },
+    //    {
+    //      'author': 'Michel Balinski',
+    //      'quote': 'Les démocraties sont à la peine en France, en Europe, aux États-Unis. Les électeurs protestent. L’une des causes principales de ce malaise provient du système électoral. Il empêche les électeurs de s’exprimer et porte souvent au pouvoir des candidats non voulus. En France, des primaires – à droite, à gauche ou citoyennes – cherchent à éviter le pire […]. Des primaires avec le scrutin majoritaire sont une fausse piste. Remplacer le mode de scrutin actuel par le jugement majoritaire s’impose.',
+    //      'image': michelBalinski
+    //    },
     {
       'author': 'Pierre-Louis Guhur',
       'quote': "A cause de notre mode de scrutin et de ses stratégies de vote, toute l'attention est portée sur quelques candidats. Les autres candidats, qui sont parfois les seuls à représenter des minorités sont complètement oubliés. Ce n'est pas sans raison que les jeunes se désintéressent des élections, alors que nous avons plein d'idées et convictions.",
-      'image': pierrelouisGuhur
+      'image': pierrelouisGuhur,
+      'link': 'twitter.com/pierrelouisg',
     },
   ]
 
@@ -309,7 +312,7 @@ const Quotes = () => {
         <div className='column'>
           <Image src={quote} alt='Quote' />
           <div className='quote'>{randQuote.quote}</div>
-          <div className='author'>{randQuote.author}</div>
+          <a href={randQuote.link} target='_blank' rel='noreferrer'><div className='author'>{randQuote.author}</div></a>
         </div>
       </div>
     </div>
