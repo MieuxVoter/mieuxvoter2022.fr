@@ -48,7 +48,10 @@ const Head = (props) => (
       <a className="social" href="https://twitter.com/share?text=Sur%20mieuxvoter2022.fr%20vous%20pouvez%20enfin%20vous%20exprimer%20pour%20les%20présidentielles%20grâce%20au%20jugement%20majoritaire.%20Soyons%20les%20plus%20nombreux%20à%20participer%20à%20cette%20expérience%20pour%20peser%20dans%20le%20débat%20!" target="_blank" rel="noreferrer">
         <Image src={twitter} alt='twitter logo' />
       </a>
-      <div className='ui button secondary'>
+      <div className='ui mobile only button secondary'>
+        <Link className="ui ensavoirplus" href='/faq'>FAQ</Link>
+      </div>
+      <div className='ui tablet only button secondary'>
         <Link className="ui ensavoirplus" href='/faq'>Questions fréquentes</Link>
       </div>
       <div className='ui button secondary'>
